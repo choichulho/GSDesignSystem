@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconPaymentAlt = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" d="M8.5 16h-2a1 1 0 0 1-1-1v-1a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1"/><path fill="currentColor" fillRule="evenodd" d="M20.5 2.75a.75.75 0 0 1 1.5 0v18.5a.75.75 0 0 1-1.5 0V19.5H5c-1.65 0-3-1.35-3-3v-9c0-1.65 1.35-3 3-3h15.5zM3.5 8.5h17V6H5c-.827 0-1.5.673-1.5 1.5zM5 18h15.5v-7h-17v5.5c0 .827.673 1.5 1.5 1.5" clipRule="evenodd"/>
+  </svg>
+));
+
+IconPaymentAlt.displayName = "IconPaymentAlt";

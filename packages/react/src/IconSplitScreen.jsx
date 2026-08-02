@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconSplitScreen = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" d="M11.25 3.75a.75.75 0 0 1 1.5 0v16.5a.75.75 0 0 1-1.5 0z"/><path fill="currentColor" fillRule="evenodd" d="M7.5 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3.5a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2M8 18a.5.5 0 0 1-.5.5H4a.5.5 0 0 1-.5-.5V6a.5.5 0 0 1 .5-.5h3.5A.5.5 0 0 1 8 6zM20 4h-3.5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2H20a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m.5 14a.5.5 0 0 1-.5.5h-3.5a.5.5 0 0 1-.5-.5V6a.5.5 0 0 1 .5-.5H20a.5.5 0 0 1 .5.5z" clipRule="evenodd"/>
+  </svg>
+));
+
+IconSplitScreen.displayName = "IconSplitScreen";

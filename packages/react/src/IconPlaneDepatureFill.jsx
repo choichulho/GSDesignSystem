@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconPlaneDepatureFill = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" d="M20.52 20.5a.75.75 0 0 1 0 1.5H4.02a.75.75 0 0 1 0-1.5zM6.1 3.09c.46-.17.975-.1 1.375.18l6.865 4.805 3.7-1.345v-.005c1.62-.59 4.195-.64 4.765.925s-1.435 3.18-3.055 3.77l-8.87 3.23-5.224 1.215A.995.995 0 0 1 4.6 15.45c-.795-1.19-2.01-3.055-3.025-4.765a.495.495 0 0 1 .26-.72l.755-.275a1 1 0 0 1 .84.075l2.76 1.595L9 9.99 4.34 4.445a.498.498 0 0 1 .21-.79z"/>
+  </svg>
+));
+
+IconPlaneDepatureFill.displayName = "IconPlaneDepatureFill";

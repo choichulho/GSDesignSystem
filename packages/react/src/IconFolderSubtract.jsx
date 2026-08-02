@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconFolderSubtract = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" fillRule="evenodd" d="M19.35 19c.91 0 1.65-.74 1.65-1.65v-8.6c0-.91-.74-1.65-1.65-1.65H11.9c-.899 0-1.75-.391-2.335-1.073l-.7-.817A.6.6 0 0 0 8.409 5H4.65C3.74 5 3 5.74 3 6.65v10.7c0 .91.74 1.65 1.65 1.65zM11.9 5.6h7.45a3.15 3.15 0 0 1 3.15 3.15v8.6a3.15 3.15 0 0 1-3.15 3.15H4.65a3.15 3.15 0 0 1-3.15-3.15V6.65A3.15 3.15 0 0 1 4.65 3.5h3.759a2.1 2.1 0 0 1 1.595.734l.7.816c.299.349.736.55 1.195.55m-3.15 6.65h6.5c.412 0 .75.337.75.75 0 .412-.338.75-.75.75h-6.5A.75.75 0 0 1 8 13c0-.413.338-.75.75-.75" clipRule="evenodd"/>
+  </svg>
+));
+
+IconFolderSubtract.displayName = "IconFolderSubtract";

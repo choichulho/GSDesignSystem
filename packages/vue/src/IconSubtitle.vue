@@ -1,0 +1,15 @@
+<template>
+  <svg
+    :width="size"
+    :height="size"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g clip-path="url(#a)"><path fill="currentColor" fill-rule="evenodd" d="M18 2H6C3.79 2 2 3.79 2 6v8c0 2.21 1.79 4 4 4h2v3a.997.997 0 0 0 1.705.705L13.41 18H18c2.21 0 4-1.79 4-4V6c0-2.21-1.79-4-4-4m2.5 12a2.5 2.5 0 0 1-2.5 2.5h-4.59c-.4 0-.78.16-1.06.44L9.5 19.79V18c0-.83-.67-1.5-1.5-1.5H6A2.5 2.5 0 0 1 3.5 14V6A2.5 2.5 0 0 1 6 3.5h12A2.5 2.5 0 0 1 20.5 6zm-7-3.25c0-.415-.36-.75-.8-.75H6.3c-.44 0-.8.335-.8.75s.36.75.8.75h6.4c.44 0 .8-.335.8-.75M11.3 13h6.4c.44 0 .8.335.8.75s-.36.75-.8.75h-6.4c-.44 0-.8-.335-.8-.75s.36-.75.8-.75m6.45-3h-2a.749.749 0 1 0 0 1.5h2a.749.749 0 1 0 0-1.5m-11.5 3h2a.749.749 0 1 1 0 1.5h-2a.749.749 0 1 1 0-1.5" clip-rule="evenodd"/></g><defs><clipPath id="a"><path fill="currentColor" d="M2 2h20v20H2z"/></clipPath></defs>
+  </svg>
+</template>
+
+<script setup>
+defineProps({ size: { type: [Number, String], default: 24 } });
+</script>

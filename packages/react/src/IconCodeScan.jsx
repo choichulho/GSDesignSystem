@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconCodeScan = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" fillRule="evenodd" d="M8.25 3H6a3 3 0 0 0-3 3v2.25a.75.75 0 0 0 1.5 0V6A1.5 1.5 0 0 1 6 4.5h2.25a.75.75 0 0 0 0-1.5M18 3h-2.25a.75.75 0 0 0 0 1.5H18A1.5 1.5 0 0 1 19.5 6v2.25a.75.75 0 0 0 1.5 0V6a3 3 0 0 0-3-3m1.5 12.75a.75.75 0 0 1 1.5 0V18a3 3 0 0 1-3 3h-2.25a.75.75 0 0 1 0-1.5H18a1.5 1.5 0 0 0 1.5-1.5zM3.75 15a.75.75 0 0 0-.75.75V18a3 3 0 0 0 3 3h2.25a.75.75 0 0 0 0-1.5H6A1.5 1.5 0 0 1 4.5 18v-2.25a.75.75 0 0 0-.75-.75m0-3.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1 0-1.5" clipRule="evenodd"/>
+  </svg>
+));
+
+IconCodeScan.displayName = "IconCodeScan";

@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconCatalog = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" fillRule="evenodd" d="M18 21c.827 0 1.5-.673 1.5-1.5v-15c0-.827-.673-1.5-1.5-1.5H7.5C6.673 3 6 3.673 6 4.5V6h.75a.75.75 0 0 1 0 1.5H6v3.75h.75a.75.75 0 0 1 0 1.5H6v3.75h.75a.75.75 0 0 1 0 1.5H6v1.5c0 .827.673 1.5 1.5 1.5zM7.5 1.5H18a3 3 0 0 1 3 3v15a3 3 0 0 1-3 3H7.5a3 3 0 0 1-3-3V18h-.75a.75.75 0 0 1 0-1.5h.75v-3.75h-.75a.75.75 0 0 1 0-1.5h.75V7.5h-.75a.75.75 0 0 1 0-1.5h.75V4.5a3 3 0 0 1 3-3M11.25 6h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5m4.5 5.25h-4.5a.75.75 0 0 0 0 1.5h4.5a.75.75 0 0 0 0-1.5m-4.5 5.25h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5" clipRule="evenodd"/>
+  </svg>
+));
+
+IconCatalog.displayName = "IconCatalog";

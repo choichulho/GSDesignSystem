@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconFlash = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" fillRule="evenodd" d="M15.726 2H8.241a1 1 0 0 0-.973.77l-2.24 9.5A1 1 0 0 0 6 13.5h3.352l-1.366 8.63c-.082.511.328.87.75.87.21 0 .423-.088.581-.291l9.468-12.118A1 1 0 0 0 18 8.975h-2.655L16.7 3.23A1 1 0 0 0 15.726 2m-.632 1.5-1.21 5.13-.435 1.845h3.525L9.921 19.5l.913-5.765L11.11 12H6.633l2.004-8.5z" clipRule="evenodd"/>
+  </svg>
+));
+
+IconFlash.displayName = "IconFlash";

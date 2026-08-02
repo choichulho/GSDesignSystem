@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconTapeMeasureFill = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <g fill="currentColor" clipPath="url(#a)"><path fillRule="evenodd" d="M1 8c0-2.76 3.58-5 8-5s8 2.24 8 5-3.58 5-8 5-8-2.24-8-5m4.875-.315c0 1.23 1.375 2.19 3.125 2.19s3.125-.96 3.125-2.19S10.75 5.495 9 5.495s-3.125.96-3.125 2.19m5 .005c0 .52-.84.94-1.875.94s-1.875-.42-1.875-.94.84-.94 1.875-.94 1.875.42 1.875.94" clipRule="evenodd"/><path d="M22.5 14.5H17v-2.955c-1.675 1.79-4.6 2.955-8 2.955s-6.325-1.165-8-2.955V15c0 2.655 3.315 4.82 7.5 4.985V20h1v-1.25a.749.749 0 1 1 1.5 0V20h3v-1.25a.749.749 0 1 1 1.5 0V20h3v-1.25a.749.749 0 1 1 1.5 0V20h2.5c.83 0 1.5-.67 1.5-1.5V16c0-.83-.67-1.5-1.5-1.5"/></g><defs><clipPath id="a"><path fill="currentColor" d="M1 3h23v17H1z"/></clipPath></defs>
+  </svg>
+));
+
+IconTapeMeasureFill.displayName = "IconTapeMeasureFill";

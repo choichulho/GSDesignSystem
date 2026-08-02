@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconHeartCircleFill = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" fillRule="evenodd" d="M16.529 13.143c-.058.061-2.423 2.613-3.665 3.953a1.216 1.216 0 0 1-1.728.008c-.043-.048-3.33-3.704-3.664-4.038a3.28 3.28 0 0 1-.972-2.341c0-.884.345-1.716.972-2.341.594-.593 1.322-.881 2.225-.881.693 0 1.466.394 2.3 1.172.531-.502 1.405-1.175 2.286-1.175.863 0 1.598.315 2.246.962a3.28 3.28 0 0 1 .97 2.339 3.3 3.3 0 0 1-.97 2.342M11.999 2C6.478 2 2 6.477 2 12s4.478 10 10 10c5.524 0 10-4.477 10-10S17.524 2 12 2" clipRule="evenodd"/>
+  </svg>
+));
+
+IconHeartCircleFill.displayName = "IconHeartCircleFill";

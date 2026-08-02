@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconStarHalf = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" fillRule="evenodd" d="M10.935 2.28c.165-.52.615-.78 1.065-.78h.005c.448.002.896.262 1.06.78l2.04 6.45 6.765-.05h.01l.005-.01c.54 0 .925.35 1.06.775s.025.935-.415 1.25l-5.505 3.935 2.14 6.42c.105.32.065.62-.065.87a1.15 1.15 0 0 1-1 .605c-.22 0-.45-.07-.66-.225l-5.435-4.013v.003L6.56 22.31c-.55.405-1.22.22-1.56-.23a1.08 1.08 0 0 1-.16-1.02l2.14-6.42-5.505-3.935A1.1 1.1 0 0 1 1.06 9.45c.14-.425.525-.77 1.07-.77l6.765.05zm1.07 14.5c.307.002.618.102.88.295l4.47 3.3-1.755-5.27a1.5 1.5 0 0 1 .55-1.695l4.52-3.23-5.555.045h-.01c-.655 0-1.23-.42-1.43-1.045l-1.67-5.28z" clipRule="evenodd"/>
+  </svg>
+));
+
+IconStarHalf.displayName = "IconStarHalf";

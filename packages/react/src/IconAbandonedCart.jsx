@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconAbandonedCart = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" fillRule="evenodd" d="M7.655 17a1.25 1.25 0 0 1-1.228-1.012l-.29-1.488h12.784a2 2 0 0 0 1.963-1.619l1.088-5.595A1.5 1.5 0 0 0 20.499 5.5H18.75a.75.75 0 0 0 0 1.5h1.75l-1.088 5.595a.5.5 0 0 1-.491.405H5.845l-1.17-6H6.25a.75.75 0 0 0 0-1.5H4.382l-.406-2.084A1.75 1.75 0 0 0 2.258 2H.75a.75.75 0 0 0 0 1.5h1.507a.25.25 0 0 1 .246.202l2.452 12.573a2.754 2.754 0 0 0 2.7 2.225H18.75a.75.75 0 1 0 0-1.5zM7.5 23a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3m10 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3M14.72 2.968a.75.75 0 1 1 1.06 1.061l-2.22 2.22 2.221 2.221a.75.75 0 1 1-1.06 1.061l-2.22-2.22-2.221 2.22a.75.75 0 0 1-.53.219.748.748 0 0 1-.53-1.28l2.22-2.22-2.22-2.22a.748.748 0 0 1 .53-1.28.75.75 0 0 1 .53.218L12.5 5.19z" clipRule="evenodd"/>
+  </svg>
+));
+
+IconAbandonedCart.displayName = "IconAbandonedCart";

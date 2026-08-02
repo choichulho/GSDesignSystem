@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconNavZzimOn = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 28 28"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" fillRule="evenodd" d="M18.567 4c-1.762 0-3.51 1.35-4.57 2.36-1.671-1.563-3.217-2.354-4.602-2.354-1.806 0-3.262.579-4.451 1.77A6.6 6.6 0 0 0 3 10.476c0 1.777.69 3.447 1.944 4.701.668.672 7.243 8.015 7.327 8.109a2.43 2.43 0 0 0 3.457-.015c2.484-2.691 7.213-7.815 7.33-7.938A6.62 6.62 0 0 0 25 10.629c0-1.775-.69-3.444-1.942-4.698C21.762 4.632 20.293 4 18.567 4" clipRule="evenodd"/>
+  </svg>
+));
+
+IconNavZzimOn.displayName = "IconNavZzimOn";

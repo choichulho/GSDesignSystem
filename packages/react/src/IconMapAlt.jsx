@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconMapAlt = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" fillRule="evenodd" d="m21 17.325-4.75 2.742.003-12.959 4.75-2.742zm-11.75-.433.002-12.959 5.501 3.175-.002 12.959zM3 19.634l.003-12.959 4.75-2.742-.003 12.958zm18-16.77c-.25 0-.506.063-.747.203l-4.75 2.742-6.25-3.608a1.5 1.5 0 0 0-1.5 0l-5.5 3.176c-.465.267-.75.762-.75 1.298L1.5 19.635a1.502 1.502 0 0 0 2.251 1.298L8.5 18.19l6.25 3.61a1.5 1.5 0 0 0 1.5 0l5.5-3.176a1.5 1.5 0 0 0 .75-1.3l.003-12.958c0-.876-.72-1.502-1.503-1.502" clipRule="evenodd"/>
+  </svg>
+));
+
+IconMapAlt.displayName = "IconMapAlt";

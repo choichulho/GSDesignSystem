@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconAddressBookFill = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" d="M18 1.5H8c-1.655 0-3 1.345-3 3V6h-.25a.749.749 0 1 0 0 1.5H5V11h-.25a.749.749 0 1 0 0 1.5H5V16h-.25a.749.749 0 1 0 0 1.5H5v2c0 1.655 1.345 3 3 3h10c1.655 0 3-1.345 3-3v-15c0-1.655-1.345-3-3-3M13 7a2 2 0 1 1 .001 3.999A2 2 0 0 1 13 7m3.57 9H9.43a.43.43 0 0 1-.43-.43A2.57 2.57 0 0 1 11.57 13h2.855a2.57 2.57 0 0 1 2.57 2.57.43.43 0 0 1-.43.43z"/>
+  </svg>
+));
+
+IconAddressBookFill.displayName = "IconAddressBookFill";

@@ -1,0 +1,15 @@
+<template>
+  <svg
+    :width="size"
+    :height="size"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path fill="currentColor" d="M12 2C6.475 2 2 6.475 2 12s4.475 10 10 10 10-4.475 10-10S17.525 2 12 2m4.205 10.945-5.33 5.33c-.52.52-1.395.06-1.27-.66l.73-4.145-2.17-.765a1 1 0 0 1-.375-1.65l5.335-5.335c.52-.52 1.395-.06 1.27.66l-.73 4.145 2.17.765a1 1 0 0 1 .375 1.65z"/>
+  </svg>
+</template>
+
+<script setup>
+defineProps({ size: { type: [Number, String], default: 24 } });
+</script>

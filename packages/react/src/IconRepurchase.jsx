@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconRepurchase = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" fillRule="evenodd" d="M9 1a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2zm0 8.5a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5H7.5V4a.5.5 0 0 1-.5.5H5a.5.5 0 0 1-.5-.5V2.5H3a.5.5 0 0 0-.5.5v6a.5.5 0 0 0 .5.5z" clipRule="evenodd"/><path fill="currentColor" d="M16.5 4.5h-1.75a.75.75 0 0 1 0-1.5h1.75A4.5 4.5 0 0 1 21 7.5v1.75a.75.75 0 0 1-1.5 0V7.5a3 3 0 0 0-3-3M7.5 19h1.75a.75.75 0 0 1 0 1.5H7.5A4.5 4.5 0 0 1 3 16v-1.75a.75.75 0 0 1 1.5 0V16a3 3 0 0 0 3 3"/><path fill="currentColor" fillRule="evenodd" d="M21 13h-6a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2m.5 8a.5.5 0 0 1-.5.5h-6a.5.5 0 0 1-.5-.5v-6a.5.5 0 0 1 .5-.5h1.5V16a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-1.5H21a.5.5 0 0 1 .5.5z" clipRule="evenodd"/>
+  </svg>
+));
+
+IconRepurchase.displayName = "IconRepurchase";

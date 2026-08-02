@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconPassportFill = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <g fill="currentColor" clipPath="url(#a)"><path d="M8.075 9.25H9.53c.065-1.035.26-1.985.545-2.755a4 4 0 0 0-2 2.755M12 13.93c.325-.335.85-1.425.975-3.18H11.03c.12 1.75.65 2.845.975 3.18zm-3.925-3.18a4 4 0 0 0 2 2.755c-.29-.77-.48-1.715-.545-2.755zM12 6.07c-.325.335-.85 1.425-.975 3.18h1.945c-.12-1.75-.65-2.845-.975-3.18zm1.925 7.435a4 4 0 0 0 2-2.755H14.47c-.065 1.035-.26 1.985-.545 2.755"/><path d="M18 .5H6c-1.655 0-3 1.345-3 3v17c0 1.655 1.345 3 3 3h12c1.655 0 3-1.345 3-3v-17c0-1.655-1.345-3-3-3M15.25 20h-6.5a.749.749 0 1 1 0-1.5h6.5a.749.749 0 1 1 0 1.5M12 15.5c-3.04 0-5.5-2.46-5.5-5.5S8.96 4.5 12 4.5s5.5 2.46 5.5 5.5-2.46 5.5-5.5 5.5"/><path d="M13.925 6.495c.29.77.48 1.715.545 2.755h1.455a4.02 4.02 0 0 0-2-2.755"/></g><defs><clipPath id="a"><path fill="currentColor" d="M3 .5h18v23H3z"/></clipPath></defs>
+  </svg>
+));
+
+IconPassportFill.displayName = "IconPassportFill";

@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconBenefitRelay = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <g fill="#424252" clipPath="url(#a)"><path d="m20.355 5.4-6.925-4a3.04 3.04 0 0 0-1.5-.4c-.515 0-1.035.135-1.5.4l-6.93 4A3 3 0 0 0 2 8v8c0 1.07.57 2.06 1.5 2.6l6.93 4c.465.27.98.4 1.5.4s1.035-.135 1.5-.4l6.925-4a3 3 0 0 0 1.5-2.6V8c0-1.07-.57-2.06-1.5-2.6m-3.89 11.12c.145.26.23.59.23.87 0 .705-.55 1.205-1.295 1.205-.685 0-1.05-.29-1.485-1.14l-1.94-3.82H9.58v3.59c0 .89-.475 1.41-1.295 1.41s-1.315-.52-1.315-1.41V7.35c0-1.37.6-1.99 1.97-1.99h3.37c2.82 0 4.565 1.545 4.565 4.035 0 1.67-.86 3-2.325 3.62l1.91 3.505z"/><path d="M11.965 7.495H9.58v4.19h2.355c1.475 0 2.325-.735 2.325-2.085s-.86-2.105-2.295-2.105"/></g><defs><clipPath id="a"><path fill="#fff" d="M2 1h19.855v22H2z"/></clipPath></defs>
+  </svg>
+));
+
+IconBenefitRelay.displayName = "IconBenefitRelay";

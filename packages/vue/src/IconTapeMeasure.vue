@@ -1,0 +1,15 @@
+<template>
+  <svg
+    :width="size"
+    :height="size"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g fill="currentColor" clip-path="url(#a)"><path d="M9 10.81c1.935 0 3.5-1.075 3.5-2.405S10.935 6 9 6 5.5 7.075 5.5 8.405 7.065 10.81 9 10.81M9 7.5c1.3 0 2 .645 2 .905s-.7.905-2 .905-2-.645-2-.905.7-.905 2-.905"/><path d="M22 12.5h-5v-4C17 5.46 13.42 3 9 3S1 5.46 1 8.5v6c0 2.925 3.315 5.305 7.5 5.485V20H22a2 2 0 0 0 2-2v-3.5a2 2 0 0 0-2-2m-7.52 0a7 7 0 0 0 1.02-.8v.8zM9 4.5c3.525 0 6.5 1.83 6.5 4s-2.975 4-6.5 4-6.5-1.83-6.5-4 2.975-4 6.5-4M22.5 18c0 .275-.225.5-.5.5h-2v-1.25a.749.749 0 1 0-1.5 0v1.25h-3v-1.25a.749.749 0 1 0-1.5 0v1.25h-3v-1.25a.749.749 0 1 0-1.5 0v1.25H9c-3.525 0-6.5-1.83-6.5-4v-2.8c1.36 1.305 3.525 2.18 6 2.285V14H22c.275 0 .5.225.5.5z"/></g><defs><clipPath id="a"><path fill="currentColor" d="M1 3h23v17H1z"/></clipPath></defs>
+  </svg>
+</template>
+
+<script setup>
+defineProps({ size: { type: [Number, String], default: 24 } });
+</script>

@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconEventNote = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" fillRule="evenodd" d="M19.5 8.518h-15V7c0-.827.673-1.5 1.5-1.5h1v.75a.75.75 0 0 0 1.5 0V5.5h7v.75a.75.75 0 0 0 1.5 0V5.5h1c.827 0 1.5.673 1.5 1.5zM19.5 19c0 .827-.673 1.5-1.5 1.5H6c-.827 0-1.5-.673-1.5-1.5v-8.982h15zM18 4h-1V2.75a.75.75 0 0 0-1.5 0V4h-7V2.75a.75.75 0 0 0-1.5 0V4H6C4.35 4 3 5.35 3 7v12c0 1.65 1.35 3 3 3h12c1.65 0 3-1.35 3-3V7c0-1.65-1.35-3-3-3M7.75 14h8.5c.413 0 .75-.338.75-.75a.75.75 0 0 0-.75-.75h-8.5a.75.75 0 0 0-.75.75c0 .412.338.75.75.75m4.5 3.5h-4.5a.753.753 0 0 1-.75-.75c0-.413.338-.75.75-.75h4.5c.412 0 .75.337.75.75 0 .412-.338.75-.75.75" clipRule="evenodd"/>
+  </svg>
+));
+
+IconEventNote.displayName = "IconEventNote";

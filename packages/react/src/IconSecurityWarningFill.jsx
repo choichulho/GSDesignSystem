@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconSecurityWarningFill = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" d="m20.015 3.825-7.5-2.735c-.33-.12-.695-.12-1.03 0l-7.5 2.735c-.59.215-.985.78-.985 1.41v8.855a6 6 0 0 0 2.67 4.99l5.495 3.665c.505.335 1.16.335 1.665 0l5.495-3.665a6 6 0 0 0 2.67-4.99V5.235c0-.63-.395-1.195-.985-1.41zM12 6.5c.55 0 1 .45 1 1l-.25 5.75a.749.749 0 1 1-1.5 0L11 7.5c0-.55.45-1 1-1m0 11a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5"/>
+  </svg>
+));
+
+IconSecurityWarningFill.displayName = "IconSecurityWarningFill";

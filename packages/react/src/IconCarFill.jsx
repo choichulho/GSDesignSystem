@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconCarFill = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" fillRule="evenodd" d="M18.579 9.5H5.421a.5.5 0 0 1-.465-.685l1.349-3.372A1.5 1.5 0 0 1 7.698 4.5h8.604a1.5 1.5 0 0 1 1.393.942l1.349 3.373a.5.5 0 0 1-.465.685M17.5 15a1.5 1.5 0 1 1 .001-3.001A1.5 1.5 0 0 1 17.5 15m-3.75.5h-3.5a.75.75 0 0 1 0-1.5h3.5a.75.75 0 0 1 0 1.5M6.5 15a1.5 1.5 0 1 1 .001-3.001A1.5 1.5 0 0 1 6.5 15m15.25-7h-1.417l-1.245-3.114A3 3 0 0 0 16.302 3H7.698a3 3 0 0 0-2.786 1.886L3.667 8H2.25a.75.75 0 0 0 0 1.5h.817l-.21.523A5 5 0 0 0 2.5 11.88v7.62A1.5 1.5 0 0 0 4 21h1a1.5 1.5 0 0 0 1.5-1.5v-1h11v1A1.5 1.5 0 0 0 19 21h1a1.5 1.5 0 0 0 1.5-1.5v-7.62a5 5 0 0 0-.358-1.857l-.209-.523h.817a.75.75 0 0 0 0-1.5" clipRule="evenodd"/>
+  </svg>
+));
+
+IconCarFill.displayName = "IconCarFill";

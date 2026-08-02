@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconFastRewindFill = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <g fill="currentColor" clipPath="url(#a)"><path d="m20.28 6.155-8.705 5.025c-.19.11-.335.26-.43.435a1.2 1.2 0 0 0-.145.56c0 .245.08.495.235.7.09.115.2.215.34.295l8.705 5.025c.38.22.81.195 1.145 0s.575-.55.575-.995V7.15a1.15 1.15 0 0 0-1.72-.995m-11 0L.575 11.18c-.19.11-.335.26-.43.435a1.2 1.2 0 0 0-.145.56c0 .195.05.385.145.56s.24.325.43.435l8.705 5.025c.38.22.81.195 1.145 0s.575-.55.575-.995V7.15c0-.4-.195-.73-.48-.935a1.13 1.13 0 0 0-1.24-.06"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 6h22v12.35H0z"/></clipPath></defs>
+  </svg>
+));
+
+IconFastRewindFill.displayName = "IconFastRewindFill";

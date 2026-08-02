@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconSendFill = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" d="M21.81 10.295 5.82 3.18a1.9 1.9 0 0 0-1.15-.15c-.37.065-.705.23-.98.47-.25.215-.445.49-.565.805a1.96 1.96 0 0 0-.045 1.26l1.665 5.8h9.235a.749.749 0 1 1 0 1.5H4.755l-1.675 5.83c-.115.41-.1.805.01 1.16s.325.665.6.905.615.405.98.47.76.025 1.15-.15l15.99-7.12a2 2 0 0 0 .72-.535c.315-.37.47-.835.47-1.295a2 2 0 0 0-1.19-1.83z"/>
+  </svg>
+));
+
+IconSendFill.displayName = "IconSendFill";

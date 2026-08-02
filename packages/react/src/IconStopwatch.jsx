@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconStopwatch = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" d="M12 5c2.236 0 4.278.82 5.852 2.17l1.42-1.42a.75.75 0 1 1 1.061 1.06l-1.425 1.425A8.96 8.96 0 0 1 21 14a9 9 0 1 1-9-9m0 1.5c-4.135 0-7.5 3.364-7.5 7.5s3.364 7.5 7.5 7.5 7.5-3.364 7.5-7.5c0-4.135-3.364-7.5-7.5-7.5m0 2c.412 0 .75.338.75.75v5.5c0 .412-.338.75-.75.75a.75.75 0 0 1-.75-.75v-5.5c0-.412.338-.75.75-.75M13.834 2c.412 0 .75.338.75.75s-.338.75-.75.75h-3.5a.75.75 0 0 1-.75-.75c0-.413.337-.75.75-.75z"/>
+  </svg>
+));
+
+IconStopwatch.displayName = "IconStopwatch";

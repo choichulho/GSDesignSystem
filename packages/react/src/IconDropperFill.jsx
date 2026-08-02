@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconDropperFill = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" d="M21.128 2.878a3.006 3.006 0 0 0-4.245 0l-2.465 2.465-.175-.175a2.254 2.254 0 0 0-3.18 0l-.355.354c-.68.68-.68 1.795 0 2.475l.175.175-7.235 7.236a3.28 3.28 0 0 0-.93 1.91l-.255 2.14-.33.67c-.245.5-.145 1.1.25 1.49s.99.49 1.49.25l.67-.325 2.14-.255a3.24 3.24 0 0 0 1.91-.93l7.235-7.235.175.175c.68.68 1.795.68 2.475 0l.355-.355a2.254 2.254 0 0 0 0-3.18l-.175-.175 2.465-2.465a3.006 3.006 0 0 0 0-4.245zm-11.85 14.68-2.83-2.83 5.495-5.495 2.83 2.83z"/>
+  </svg>
+));
+
+IconDropperFill.displayName = "IconDropperFill";

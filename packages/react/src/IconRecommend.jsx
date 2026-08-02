@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconRecommend = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" fillRule="evenodd" d="M12 15.5A6.51 6.51 0 0 1 5.5 9c0-3.584 2.916-6.5 6.5-6.5s6.5 2.916 6.5 6.5-2.916 6.5-6.5 6.5m3.5 4.938-1.908-1.909a2.24 2.24 0 0 0-1.592-.66c-.6 0-1.166.235-1.591.66L8.5 20.438v-4.252A7.96 7.96 0 0 0 12 17a7.96 7.96 0 0 0 3.5-.814zM12 1a8 8 0 0 0-8 8 7.98 7.98 0 0 0 3 6.24v7.009a.75.75 0 0 0 1.28.53l3.19-3.19a.75.75 0 0 1 1.06 0l3.19 3.19a.75.75 0 0 0 1.28-.53v-7.01A7.98 7.98 0 0 0 20 9a8 8 0 0 0-8-8" clipRule="evenodd"/>
+  </svg>
+));
+
+IconRecommend.displayName = "IconRecommend";

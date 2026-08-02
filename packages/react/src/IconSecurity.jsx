@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconSecurity = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" d="m12 2.5 7.5 2.01v9.405a4.5 4.5 0 0 1-1.92 3.685l-5.57 3.9-5.595-3.92a4.5 4.5 0 0 1-1.92-3.685V4.51zM12 1q-.195-.001-.39.05l-7.5 2.01C3.455 3.235 3 3.83 3 4.51v9.385c0 1.96.955 3.79 2.56 4.915l5.595 3.92a1.51 1.51 0 0 0 1.72 0l5.57-3.9a6 6 0 0 0 2.56-4.915V4.51c0-.68-.455-1.275-1.11-1.45L12.39 1.05A1.5 1.5 0 0 0 12 1"/>
+  </svg>
+));
+
+IconSecurity.displayName = "IconSecurity";

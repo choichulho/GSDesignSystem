@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconCartDown = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" fillRule="evenodd" d="M6.428 15.988c.113.586.63 1.012 1.227 1.012H18.75a.75.75 0 1 1 0 1.5H7.655a2.754 2.754 0 0 1-2.7-2.225L2.503 3.702a.25.25 0 0 0-.246-.202H.75a.75.75 0 0 1 0-1.5h1.508c.836 0 1.558.595 1.718 1.416L4.382 5.5H6.25a.75.75 0 0 1 0 1.5H4.675l1.17 6h13.076a.5.5 0 0 0 .491-.405L20.5 7h-1.75a.75.75 0 0 1 0-1.5h1.75a1.5 1.5 0 0 1 1.472 1.786l-1.088 5.595a2 2 0 0 1-1.963 1.619H6.138zM11.75 4.25a.75.75 0 0 1 1.5 0v4.689l1.47-1.47a.75.75 0 1 1 1.06 1.06l-2.75 2.751a.75.75 0 0 1-1.06 0L9.22 8.53a.751.751 0 0 1 1.06-1.06l1.47 1.47zM7.5 23a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3M19 21.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0" clipRule="evenodd"/>
+  </svg>
+));
+
+IconCartDown.displayName = "IconCartDown";

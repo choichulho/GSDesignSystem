@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconGift = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" fillRule="evenodd" d="M20.5 11.5a.5.5 0 0 1-.5.5h-7.25V8H20a.5.5 0 0 1 .5.5zM19 20c0 .827-.673 1.5-1.5 1.5h-4.75v-8H19zM5 20v-6.5h6.25v8H6.5c-.827 0-1.5-.673-1.5-1.5M3.5 8.5A.5.5 0 0 1 4 8h7.25v4H4a.5.5 0 0 1-.5-.5zm3.25-4c0-1.102 1.01-2 2.25-2s2.25.898 2.25 2v2H9c-1.24 0-2.25-.897-2.25-2m8.25-2c1.24 0 2.25.898 2.25 2 0 1.103-1.01 2-2.25 2h-2.25v-2c0-1.102 1.01-2 2.25-2m5 4h-1.925a3.33 3.33 0 0 0 .675-2C18.75 2.567 17.072 1 15 1c-1.229 0-2.316.554-3 1.406C11.316 1.555 10.229 1 9 1 6.928 1 5.25 2.567 5.25 4.5c0 .744.251 1.433.675 2H4a2 2 0 0 0-2 2v3c0 .93.639 1.706 1.5 1.929V20a3 3 0 0 0 3 3h11a3 3 0 0 0 3-3v-6.571A1.995 1.995 0 0 0 22 11.5v-3a2 2 0 0 0-2-2" clipRule="evenodd"/>
+  </svg>
+));
+
+IconGift.displayName = "IconGift";

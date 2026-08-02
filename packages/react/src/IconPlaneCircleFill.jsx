@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconPlaneCircleFill = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" d="M12 2C6.475 2 2 6.475 2 12s4.475 10 10 10 10-4.475 10-10S17.525 2 12 2m4.23 11.41h-3.19l-2.7 3.86a.55.55 0 0 1-.445.235H9.31c-.18 0-.31-.17-.265-.345l1.005-3.75v-.015l-1.76-.24-.645 1.38a.4.4 0 0 1-.37.235h-.5a.27.27 0 0 1-.27-.295l.21-2.43-.21-2.43a.27.27 0 0 1 .27-.295h.5c.16 0 .305.09.37.235l.645 1.38 1.76-.24v-.015L9.045 6.93a.275.275 0 0 1 .265-.345h.585c.18 0 .345.085.445.235l2.7 3.86h3.19c.94 0 2.27.455 2.27 1.365s-1.33 1.365-2.27 1.365"/>
+  </svg>
+));
+
+IconPlaneCircleFill.displayName = "IconPlaneCircleFill";

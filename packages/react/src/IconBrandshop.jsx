@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconBrandshop = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" d="M13.5 12.75c.95-.2 1.7-1 1.7-2 0-1.4-1.05-2.25-2.75-2.25h-3c-.6 0-.95.35-.95 1v7c0 .6.35 1 .95 1h3.05c1.9 0 3.1-1 3.1-2.6 0-1.15-.9-2.05-2.1-2.15M10.4 9.9h1.55c.9 0 1.4.4 1.4 1.15s-.55 1.2-1.6 1.2H10.4zm1.6 6.2h-1.6v-2.6H12c1.1 0 1.7.45 1.7 1.3s-.6 1.3-1.7 1.3"/><path fill="currentColor" d="M19.65 6.7 13.1 2.35A1.8 1.8 0 0 0 12 2c-.4 0-.75.1-1.1.35L4.35 6.7C3.5 7.25 3 8.2 3 9.2V18c0 1.65 1.35 3 3 3h12c1.65 0 3-1.35 3-3V9.2c0-1-.5-1.95-1.35-2.5M19.5 18c0 .85-.65 1.5-1.5 1.5H6c-.85 0-1.5-.65-1.5-1.5V9.2c0-.5.25-.95.65-1.25L11.7 3.6c.15-.1.25-.1.3-.1s.15 0 .3.1l6.55 4.35c.4.3.65.75.65 1.25z"/>
+  </svg>
+));
+
+IconBrandshop.displayName = "IconBrandshop";

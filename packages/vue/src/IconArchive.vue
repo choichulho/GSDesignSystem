@@ -1,0 +1,15 @@
+<template>
+  <svg
+    :width="size"
+    :height="size"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path fill="currentColor" fill-rule="evenodd" d="M18.5 6h-13V3h13zm0 4.5h-13v-3h13zM18 21a.5.5 0 0 0 .5-.5V12h-13v8.5a.5.5 0 0 0 .5.5zM5 1.5h14a1 1 0 0 1 1 1v18a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-18a1 1 0 0 1 1-1M13.75 16h-3.5a.75.75 0 0 1 0-1.5h3.5a.75.75 0 0 1 0 1.5" clip-rule="evenodd"/>
+  </svg>
+</template>
+
+<script setup>
+defineProps({ size: { type: [Number, String], default: 24 } });
+</script>

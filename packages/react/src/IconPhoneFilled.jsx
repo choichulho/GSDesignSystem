@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconPhoneFilled = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" d="M10.755 12.77a28 28 0 0 1-1.79-1.965 1.497 1.497 0 0 1 .105-2.01l.705-.705a1.995 1.995 0 0 0 .165-2.64L8.16 3.16a2.96 2.96 0 0 0-2.135-1.15c-.835-.065-1.7.22-2.35.87l-.615.615c-2.475 2.47-.44 8.04 4.245 12.725s10.255 6.72 12.73 4.245l.615-.615c.535-.535.82-1.215.87-1.905.07-.96-.325-1.94-1.15-2.585l-2.29-1.78a1.994 1.994 0 0 0-2.64.165l-.705.705a1.497 1.497 0 0 1-2.01.105 28 28 0 0 1-1.965-1.79z"/>
+  </svg>
+));
+
+IconPhoneFilled.displayName = "IconPhoneFilled";

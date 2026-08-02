@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconTextStrikethrough = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" fillRule="evenodd" d="M13 11h7.5a.5.5 0 1 1 0 1h-17a.5.5 0 1 1 0-1H11V6.5H5.75A.75.75 0 0 1 5 5.75v-1A.75.75 0 0 1 5.75 4h12.5a.75.75 0 0 1 .75.75v1a.75.75 0 0 1-.75.75H13zm-1.329 9a.67.67 0 0 1-.671-.67V13.5h2v5.83c0 .37-.3.67-.671.67z" clipRule="evenodd"/>
+  </svg>
+));
+
+IconTextStrikethrough.displayName = "IconTextStrikethrough";

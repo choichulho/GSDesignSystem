@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconAnalytics = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" fillRule="evenodd" d="M4 19.5h17.25a.75.75 0 0 1 0 1.5H4a2 2 0 0 1-2-2V3.75a.75.75 0 0 1 1.5 0V19a.5.5 0 0 0 .5.5M21.945 5.971l.002.006A.8.8 0 0 1 22 6.25v4.5a.75.75 0 1 1-1.5 0V8.06l-5.09 5.092c-.041.04-.089.066-.136.092l-.03.017a.74.74 0 0 1-.895-.11l-3.014-3.014-4.554 4.554a.75.75 0 1 1-1.06-1.06l5.074-5.076a.75.75 0 0 1 .54-.218.75.75 0 0 1 .539.218l3.005 3.005L19.439 7h-2.69a.75.75 0 0 1 0-1.5h4.501q.146.002.273.053l.006.002.006.002a.75.75 0 0 1 .41.414" clipRule="evenodd"/>
+  </svg>
+));
+
+IconAnalytics.displayName = "IconAnalytics";

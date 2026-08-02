@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconFlow = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" fillRule="evenodd" d="M19 21c-.827 0-1.5-.673-1.5-1.5S18.173 18 19 18s1.5.673 1.5 1.5S19.827 21 19 21M10.5 4.5c0-.827.673-1.5 1.5-1.5s1.5.673 1.5 1.5S12.827 6 12 6s-1.5-.673-1.5-1.5m-4 15c0 .827-.673 1.5-1.5 1.5s-1.5-.673-1.5-1.5S4.173 18 5 18s1.5.673 1.5 1.5m13.25-2.901V13a2 2 0 0 0-2-2h-5V7.402A2.998 2.998 0 0 0 12 1.5a2.998 2.998 0 0 0-.75 5.902V11h-5a2 2 0 0 0-2 2v3.599A2.998 2.998 0 0 0 5 22.5a2.998 2.998 0 0 0 .75-5.901V13a.5.5 0 0 1 .5-.5h11.5a.5.5 0 0 1 .5.5v3.599A2.998 2.998 0 0 0 19 22.5a2.998 2.998 0 0 0 .75-5.901" clipRule="evenodd"/>
+  </svg>
+));
+
+IconFlow.displayName = "IconFlow";

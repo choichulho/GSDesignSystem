@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconPointFill = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" fillRule="evenodd" d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2m.883 4.851H9.508c-.625 0-1.008.391-1.008 1.047v9.313c0 .664.383 1.047 1.008 1.047.633 0 1.008-.383 1.008-1.047v-2.812h2.281c2.281 0 3.883-1.524 3.883-3.774s-1.555-3.774-3.797-3.774M12.352 8.5c1.445 0 2.28.774 2.28 2.125 0 1.367-.843 2.149-2.288 2.149h-1.828V8.5z" clipRule="evenodd"/>
+  </svg>
+));
+
+IconPointFill.displayName = "IconPointFill";

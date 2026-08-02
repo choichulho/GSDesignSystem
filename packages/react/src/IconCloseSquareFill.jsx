@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconCloseSquareFill = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" d="M18 3H6C4.35 3 3 4.35 3 6v12c0 1.65 1.35 3 3 3h12c1.65 0 3-1.35 3-3V6c0-1.65-1.35-3-3-3m-2 11.94c.29.29.29.77 0 1.06a.75.75 0 0 1-.53.22.75.75 0 0 1-.53-.22L12 13.06 9.06 16a.75.75 0 0 1-.53.22A.75.75 0 0 1 8 16a.754.754 0 0 1 0-1.06L10.94 12 8 9.06A.754.754 0 0 1 8 8a.75.75 0 0 1 .53-.22c.19 0 .385.075.53.22L12 10.94 14.94 8a.75.75 0 0 1 .53-.22c.19 0 .385.075.53.22.29.29.29.77 0 1.06L13.06 12z"/>
+  </svg>
+));
+
+IconCloseSquareFill.displayName = "IconCloseSquareFill";

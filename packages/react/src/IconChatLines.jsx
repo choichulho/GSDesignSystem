@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconChatLines = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" fillRule="evenodd" d="m19.382 17.076.862 3.216-3.249-.87a1.5 1.5 0 0 0-1.081.118A8.4 8.4 0 0 1 12 20.5c-4.687 0-8.5-3.813-8.5-8.5S7.313 3.5 12 3.5s8.5 3.813 8.5 8.5a8.4 8.4 0 0 1-.993 3.983 1.5 1.5 0 0 0-.125 1.093m1.449-.388A9.95 9.95 0 0 0 22 12c0-5.523-4.477-10-10-10S2 6.477 2 12s4.477 10 10 10a9.95 9.95 0 0 0 4.607-1.13l4.085 1.095q.135.035.263.035c.631 0 1.137-.605.962-1.26zM16.751 9h-9.5a.75.75 0 0 0 0 1.5h9.5a.75.75 0 0 0 0-1.5m-9.5 4.5h3.5a.75.75 0 0 1 0 1.5h-3.5a.75.75 0 0 1 0-1.5" clipRule="evenodd"/>
+  </svg>
+));
+
+IconChatLines.displayName = "IconChatLines";

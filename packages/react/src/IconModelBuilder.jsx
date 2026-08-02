@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconModelBuilder = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" d="M21.5 4h-3c-.83 0-1.5.67-1.5 1.5v.75H8V5.5C8 4.67 7.33 4 6.5 4h-3C2.67 4 2 4.67 2 5.5v3c0 .83.67 1.5 1.5 1.5h3C7.33 10 8 9.33 8 8.5v-.75h4.905c-.255.44-.405.955-.405 1.5v7.5c0 .825-.675 1.5-1.5 1.5H8v-.75c0-.83-.67-1.5-1.5-1.5h-3c-.83 0-1.5.67-1.5 1.5v3c0 .83.67 1.5 1.5 1.5h3c.83 0 1.5-.67 1.5-1.5v-.75h3c1.655 0 3-1.345 3-3v-7.5c0-.825.675-1.5 1.5-1.5H17v.75c0 .83.67 1.5 1.5 1.5h3c.83 0 1.5-.67 1.5-1.5v-3c0-.83-.67-1.5-1.5-1.5m-15 4.5h-3v-3h3zm0 12h-3v-3h3zm15-12h-3v-3h3z"/>
+  </svg>
+));
+
+IconModelBuilder.displayName = "IconModelBuilder";

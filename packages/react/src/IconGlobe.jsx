@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconGlobe = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <g fill="currentColor" clipPath="url(#a)"><path d="M12 3.5c4.685 0 8.5 3.815 8.5 8.5s-3.815 8.5-8.5 8.5-8.5-3.815-8.5-8.5S7.315 3.5 12 3.5M12 2C6.475 2 2 6.475 2 12s4.475 10 10 10 10-4.475 10-10S17.525 2 12 2"/><path d="M12 3.5c1.02 0 3 3 3 8.5s-1.98 8.5-3 8.5-3-3-3-8.5 1.98-8.5 3-8.5M12 2C9.515 2 7.5 6.475 7.5 12S9.515 22 12 22s4.5-4.475 4.5-10S14.485 2 12 2"/><path d="M20.71 11.25H3.29v1.5h17.42z"/></g><defs><clipPath id="a"><path fill="currentColor" d="M2 2h20v20H2z"/></clipPath></defs>
+  </svg>
+));
+
+IconGlobe.displayName = "IconGlobe";

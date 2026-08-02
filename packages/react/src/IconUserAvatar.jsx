@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconUserAvatar = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" fillRule="evenodd" d="M10.4 16.119c-1.79 0-3.357.832-4.21 2.067A8.46 8.46 0 0 0 12 20.5a8.46 8.46 0 0 0 5.812-2.315c-.853-1.233-2.42-2.066-4.212-2.066zM20.5 12c0-4.687-3.813-8.5-8.5-8.5S3.5 7.313 3.5 12c0 1.889.627 3.63 1.673 5.043 1.162-1.463 3.074-2.424 5.227-2.424h3.2c2.153 0 4.065.96 5.226 2.424A8.44 8.44 0 0 0 20.5 12M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12m12.5-2.981c0-1.378-1.121-2.5-2.5-2.5a2.503 2.503 0 0 0-2.5 2.5c0 1.379 1.121 2.5 2.5 2.5s2.5-1.121 2.5-2.5m1.5 0a4 4 0 1 1-8 0 4 4 0 0 1 8 0" clipRule="evenodd"/>
+  </svg>
+));
+
+IconUserAvatar.displayName = "IconUserAvatar";

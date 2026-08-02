@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconVvipCircleFill = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" fillRule="evenodd" d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10m-.748-14.545-.318.954c-.051.155.126.284.257.187L12 7.998l.81.598c.13.097.307-.032.256-.187l-.319-.954.82-.586a.166.166 0 0 0-.098-.3l-1.007.007-.303-.96c-.05-.154-.269-.154-.317 0l-.304.96-1.007-.008a.166.166 0 0 0-.098.301zm5.649 3.214c0-.405-.474-.563-.677-.226l-1.762 2.94-2.13-3.553a.35.35 0 0 0-.615 0l-2.155 3.594-1.787-2.98c-.202-.338-.676-.18-.676.225l-.008 6.011c0 .423.289.768.66.811l.02.004q.017.004.036.005h8.435a.33.33 0 0 0 .167-.048c.29-.11.501-.412.5-.772z" clipRule="evenodd"/>
+  </svg>
+));
+
+IconVvipCircleFill.displayName = "IconVvipCircleFill";

@@ -1,0 +1,14 @@
+{
+  "name": "gs-icons",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "export": "node export-icons.mjs",
+    "build": "node build-components.mjs",
+    "sync": "node export-icons.mjs && node build-components.mjs"
+  },
+  "dependencies": {
+    "svgo": "^4.0.0"
+  }
+}

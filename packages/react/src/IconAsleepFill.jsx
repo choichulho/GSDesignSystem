@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconAsleepFill = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" fillRule="evenodd" d="M17.573 15.814c-3.672-.565-7.285-4.167-7.85-7.838a9.4 9.4 0 0 1 .426-4.615c.296-.833-.519-1.623-1.332-1.278a10.37 10.37 0 0 0-6.264 10.606c.453 4.567 4.761 8.843 9.332 9.265a10.36 10.36 0 0 0 9.636-4.602c.48-.726-.127-1.684-.987-1.546a9.5 9.5 0 0 1-2.961.008" clipRule="evenodd"/>
+  </svg>
+));
+
+IconAsleepFill.displayName = "IconAsleepFill";

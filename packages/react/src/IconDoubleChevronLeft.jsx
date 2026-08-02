@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconDoubleChevronLeft = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" fillRule="evenodd" d="M11.53 6.28 5.81 12l5.72 5.72c.15.15.22.345.22.54A.754.754 0 0 1 11 19a.75.75 0 0 1-.53-.22l-6.25-6.25A.75.75 0 0 1 4 12c0-.19.075-.385.22-.53l6.245-6.25a.75.75 0 0 1 .53-.22q.027 0 .051.003l.044.002a.75.75 0 0 1 .655.67.74.74 0 0 1-.215.605M12.56 12l5.72 5.72h-.005c.15.15.22.345.22.54a.754.754 0 0 1-.75.74.75.75 0 0 1-.53-.22l-6.25-6.25a.75.75 0 0 1-.22-.53c0-.19.075-.385.22-.53l6.25-6.25a.75.75 0 0 1 .53-.22q.027 0 .051.003l.044.002a.75.75 0 0 1 .655.67.74.74 0 0 1-.215.605z" clipRule="evenodd"/>
+  </svg>
+));
+
+IconDoubleChevronLeft.displayName = "IconDoubleChevronLeft";

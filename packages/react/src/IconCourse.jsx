@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconCourse = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" fillRule="evenodd" d="M16 12a1.5 1.5 0 0 0-.671.158l-1.829.915V3H17c.827 0 1.5.673 1.5 1.5v8.573l-1.829-.915A1.5 1.5 0 0 0 16 12m1-10.5H7a3 3 0 0 0-3 3v15a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-1.25a.75.75 0 0 0-1.5 0v1.25A1.5 1.5 0 0 1 17 21H7a1.5 1.5 0 0 1-1.5-1.5v-15A1.5 1.5 0 0 1 7 3h5v11.691a.5.5 0 0 0 .723.447L16 13.5l3.276 1.638q.111.054.224.053a.5.5 0 0 0 .5-.5V4.5a3 3 0 0 0-3-3" clipRule="evenodd"/>
+  </svg>
+));
+
+IconCourse.displayName = "IconCourse";

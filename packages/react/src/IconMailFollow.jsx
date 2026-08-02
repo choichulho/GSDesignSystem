@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconMailFollow = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" fillRule="evenodd" d="M10.713 10.221c.456.37 1.119.37 1.575 0l7.76-6.292A1.5 1.5 0 0 0 19 3.5H4c-.409 0-.777.164-1.048.429zm10.537-.72a.75.75 0 0 1-.75-.75V5.492l-7.268 5.893a2.75 2.75 0 0 1-1.732.61c-.616 0-1.23-.203-1.732-.61L2.5 5.493V15A1.5 1.5 0 0 0 4 16.5h6.75a.75.75 0 1 1 0 1.5H4a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3h15a3 3 0 0 1 3 3v3.75a.75.75 0 0 1-.75.75m-1.72 3.969 3.25 3.25a.75.75 0 0 1 0 1.061l-3.25 3.25a.75.75 0 1 1-1.061-1.061l1.97-1.97h-4.69a.75.75 0 0 1-.75-.75c0-.413.338-.75.75-.75h4.69l-1.97-1.97a.75.75 0 1 1 1.06-1.06" clipRule="evenodd"/>
+  </svg>
+));
+
+IconMailFollow.displayName = "IconMailFollow";

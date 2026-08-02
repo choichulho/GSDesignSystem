@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconPip = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" fillRule="evenodd" d="M4 3h12c1.65 0 3 1.35 3 3v2.75c0 .4-.35.75-.75.75s-.75-.35-.75-.75V6c0-.85-.65-1.5-1.5-1.5H4c-.85 0-1.5.65-1.5 1.5v8c0 .85.65 1.5 1.5 1.5h3.75c.4 0 .75.35.75.75s-.35.75-.75.75H4c-1.65 0-3-1.35-3-3V6c0-1.65 1.35-3 3-3m17.5 10.5c0-.55-.45-1-1-1h-8c-.55 0-1 .45-1 1v5c0 .55.45 1 1 1h8c.55 0 1-.45 1-1zm-9-2.5h8c1.4 0 2.5 1.1 2.5 2.5v5c0 1.4-1.1 2.5-2.5 2.5h-8c-1.4 0-2.5-1.1-2.5-2.5v-5c0-1.4 1.1-2.5 2.5-2.5" clipRule="evenodd"/>
+  </svg>
+));
+
+IconPip.displayName = "IconPip";

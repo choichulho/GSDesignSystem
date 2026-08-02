@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconInboxMove = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" fillRule="evenodd" d="M8.72 9.03a.75.75 0 1 1 1.06-1.061l1.47 1.47V1.75a.75.75 0 0 1 1.5 0v7.69l1.47-1.47a.75.75 0 0 1 1.06 0 .75.75 0 0 1 0 1.06l-2.75 2.75a.75.75 0 0 1-1.06 0zM20 19.5a1.5 1.5 0 0 0 1.5-1.5v-4.5h-5.791A3.98 3.98 0 0 1 12 16a3.98 3.98 0 0 1-3.709-2.5H2.5V18A1.5 1.5 0 0 0 4 19.5zM18.026 6.072l4.506 5.37c.302.36.468.816.468 1.286V18a3 3 0 0 1-3 3H4a3 3 0 0 1-3-3v-5.272c0-.47.165-.925.468-1.285l4.507-5.371A3 3 0 0 1 8.273 5H9a.75.75 0 0 1 0 1.5h-.727c-.444 0-.864.197-1.15.536L2.959 12h5.696c.451 0 .825.312.959.743a2.5 2.5 0 0 0 4.775 0c.133-.431.507-.743.958-.743h5.696l-4.166-4.964a1.5 1.5 0 0 0-1.149-.536H15A.75.75 0 0 1 15 5h.727a3 3 0 0 1 2.299 1.072" clipRule="evenodd"/>
+  </svg>
+));
+
+IconInboxMove.displayName = "IconInboxMove";

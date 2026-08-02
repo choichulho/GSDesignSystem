@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconAddAltFill = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" fillRule="evenodd" d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10m.75-10.75h3.5c.413 0 .75.338.75.75s-.337.75-.75.75h-3.5v3.5c0 .413-.338.75-.75.75a.75.75 0 0 1-.75-.75v-3.5h-3.5A.75.75 0 0 1 7 12c0-.412.338-.75.75-.75h3.5v-3.5c0-.412.338-.75.75-.75s.75.338.75.75z" clipRule="evenodd"/>
+  </svg>
+));
+
+IconAddAltFill.displayName = "IconAddAltFill";

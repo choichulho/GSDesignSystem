@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconShippingAddress = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" fillRule="evenodd" d="M17 3H5C3.345 3 2 4.345 2 6v12c0 1.655 1.345 3 3 3h5.25a.749.749 0 1 0 0-1.5H5c-.83 0-1.5-.67-1.5-1.5V6c0-.83.67-1.5 1.5-1.5h3v3C8 8.33 8.67 9 9.5 9h3c.83 0 1.5-.67 1.5-1.5v-3h3c.83 0 1.5.67 1.5 1.5v2.25a.749.749 0 1 0 1.5 0V6c0-1.655-1.345-3-3-3m-4.5 4.5h-3v-3h3zm5 4.525h.12c1.535.06 2.825 1.36 2.875 2.895.02.645-.16 1.27-.525 1.8l-2.47 3.425-2.47-3.425c-.345-.5-.53-1.09-.53-1.695 0-1.655 1.345-3 3-3m0-1.5a4.5 4.5 0 0 0-4.5 4.5c0 .955.3 1.835.805 2.56l2.885 4a.998.998 0 0 0 1.62 0l2.885-4c.53-.765.835-1.705.8-2.715-.075-2.325-1.99-4.255-4.32-4.345zm1 4.01a1 1 0 1 1-2 0 1 1 0 0 1 2 0" clipRule="evenodd"/>
+  </svg>
+));
+
+IconShippingAddress.displayName = "IconShippingAddress";

@@ -1,0 +1,46 @@
+name: Sync Icons from Figma
+
+# ── 언제 실행되나 ──
+on:
+  workflow_dispatch:          # GitHub UI에서 "Run workflow" 버튼으로 수동 실행 (기본)
+  # schedule:
+  #   - cron: "0 0 * * *"     # 매일 자동 실행하고 싶으면 이 두 줄 주석 해제 (UTC 기준)
+
+# 결과물(dist, packages)을 저장소에 다시 커밋하려면 쓰기 권한이 필요합니다
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Node 세팅
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: 의존성 설치
+        run: npm install
+
+      - name: 피그마 → SVG + icons.json
+        env:
+          FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
+        run: node export-icons.mjs
+
+      - name: SVG → React·Vue 컴포넌트
+        run: node build-components.mjs
+
+      - name: 변경사항 커밋 & 푸시
+        run: |
+          git config user.name "gs-icon-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add dist packages
+          if git diff --staged --quiet; then
+            echo "변경된 아이콘이 없습니다. 커밋을 건너뜁니다."
+          else
+            git commit -m "chore(icons): 피그마 아이콘 동기화 [skip ci]"
+            git push
+          fi

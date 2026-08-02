@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconQuote = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" fillRule="evenodd" d="M4.654 11.935H8.5a2 2 0 0 1 2 2v3.5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4.222h.008c.076-3.15 1.766-5.915 4.315-7.59a.754.754 0 0 1 1.066.254l.001.001a.745.745 0 0 1-.236.996c-1.788 1.174-3.077 2.974-3.5 5.06m10.5 0H19a2 2 0 0 1 2 2v3.5a2 2 0 0 1-2 2h-3.5a2 2 0 0 1-2-2v-4.222h.008c.077-3.15 1.767-5.915 4.315-7.59a.754.754 0 0 1 1.066.254l.001.001a.745.745 0 0 1-.236.996c-1.788 1.174-3.076 2.974-3.5 5.06" clipRule="evenodd"/>
+  </svg>
+));
+
+IconQuote.displayName = "IconQuote";

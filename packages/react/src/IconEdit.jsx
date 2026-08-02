@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconEdit = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" fillRule="evenodd" d="m15.536 5.636 2.828 2.828.575-.575 1.415-1.414a.5.5 0 0 0 0-.708l-2.122-2.12a.5.5 0 0 0-.707 0zm-9.232 9.232 2.828 2.828 8.171-8.17-2.828-2.83zm-.836 1.285-1.844 4.223 4.223-1.844zm15.946-8.617L20 8.95l-1.06 1.06-9.263 9.262a1.3 1.3 0 0 1-.448.293L3.9 21.892a1.5 1.5 0 0 1-.552.108c-.926 0-1.624-.919-1.24-1.9l2.327-5.33q.102-.256.293-.447l9.261-9.263 2.475-2.474c.39-.39.903-.586 1.415-.586s1.023.195 1.414.585l2.121 2.122a2 2 0 0 1 0 2.829M11.75 20.5h9.5a.75.75 0 0 1 0 1.5h-9.5a.75.75 0 1 1 0-1.5" clipRule="evenodd"/>
+  </svg>
+));
+
+IconEdit.displayName = "IconEdit";

@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconExpendLessAlt = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" fillRule="evenodd" d="M12 20.5c4.687 0 8.5-3.813 8.5-8.5S16.687 3.5 12 3.5 3.5 7.313 3.5 12s3.813 8.5 8.5 8.5m0 1.5C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10m-.532-13.498.001-.002a.75.75 0 0 1 1.062 0l.001.002.001.001 4.248 4.248a.75.75 0 0 1-1.06 1.061L12 10.092l-3.722 3.72a.75.75 0 1 1-1.06-1.06l4.248-4.248z" clipRule="evenodd"/>
+  </svg>
+));
+
+IconExpendLessAlt.displayName = "IconExpendLessAlt";

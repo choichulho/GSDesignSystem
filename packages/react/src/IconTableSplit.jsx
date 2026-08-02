@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconTableSplit = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" fillRule="evenodd" d="M19 19h-6.25v-3.5h7.75v2c0 .827-.673 1.5-1.5 1.5M3.5 17.5v-2h7.75V19H5c-.827 0-1.5-.673-1.5-1.5m0-3.5h7.75v-3.5H3.5zm9.25 0h7.75v-3.5h-7.75zM5 5.5h14c.827 0 1.5.673 1.5 1.5v2h-17V7c0-.827.673-1.5 1.5-1.5M19 4H5a3 3 0 0 0-3 3v10.5a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3" clipRule="evenodd"/>
+  </svg>
+));
+
+IconTableSplit.displayName = "IconTableSplit";

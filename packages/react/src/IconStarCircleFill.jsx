@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconStarCircleFill = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" d="M12 2C6.475 2 2 6.475 2 12s4.475 10 10 10 10-4.475 10-10S17.525 2 12 2m5.745 9.02-3.005 2.145 1.17 3.5c.085.25 0 .485-.16.635a.596.596 0 0 1-.78.045L12 15.155l-2.97 2.19a.6.6 0 0 1-.72 0 .595.595 0 0 1-.22-.685l1.17-3.5-3.005-2.145A.6.6 0 0 1 6 10.46a.6.6 0 0 1 .61-.55l3.69.03 1.115-3.52c.18-.565.98-.565 1.16 0l1.115 3.52 3.69-.03a.6.6 0 0 1 .585.42.6.6 0 0 1-.225.685z"/>
+  </svg>
+));
+
+IconStarCircleFill.displayName = "IconStarCircleFill";

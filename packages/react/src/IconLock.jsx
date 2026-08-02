@@ -1,0 +1,17 @@
+import * as React from "react";
+
+export const IconLock = React.forwardRef(({ size = 24, ...props }, ref) => (
+  <svg
+    ref={ref}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path fill="currentColor" fillRule="evenodd" d="M18 19.5c0 .827-.673 1.5-1.5 1.5h-9c-.827 0-1.5-.673-1.5-1.5v-7a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 .5.5zM9 6c0-1.654 1.345-3 3-3s3 1.346 3 3v4.5H9zm8.5 4.5h-1V6a4.5 4.5 0 1 0-9 0v4.5h-1a2 2 0 0 0-2 2v7a3 3 0 0 0 3 3h9a3 3 0 0 0 3-3v-7a2 2 0 0 0-2-2" clipRule="evenodd"/>
+  </svg>
+));
+
+IconLock.displayName = "IconLock";
