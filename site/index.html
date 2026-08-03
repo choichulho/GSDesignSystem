@@ -149,6 +149,7 @@
       <div class="tabs" id="tabs">
         <button data-tab="react" class="active">React</button>
         <button data-tab="vue">Vue</button>
+        <button data-tab="flutter">Flutter</button>
         <button data-tab="svg">SVG</button>
       </div>
       <div class="code"><button class="copy" id="copyBtn">복사</button><span id="codeText"></span></div>
@@ -248,6 +249,14 @@ function codeFor(ic, tab) {
   const comp = pascal(ic.name);
   if (tab === "react") return 'import { ' + comp + ' } from "@gs/icons-react";\n\n<' + comp + " />";
   if (tab === "vue") return 'import { ' + comp + ' } from "@gs/icons-vue";\n\n<' + comp + ' :size="24" />';
+  if (tab === "flutter") {
+    const tail = ic.type === "multicolor"
+      ? ",\n)"
+      : ",\n  colorFilter: const ColorFilter.mode(Color(0xFF191923), BlendMode.srcIn), // 색 변경\n)";
+    return "// pubspec.yaml → dependencies: flutter_svg: ^2.0.0\n" +
+      "import 'package:flutter_svg/flutter_svg.dart';\n\n" +
+      "SvgPicture.string(\n  '''" + (ic.svg || "") + "''',\n  width: 24,\n  height: 24" + tail;
+  }
   return ic.svg || "";
 }
 
