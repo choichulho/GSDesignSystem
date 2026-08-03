@@ -59,6 +59,9 @@ function svgoConfig(isMulticolor) {
     plugins: [
       { name: "preset-default", params: { overrides } },
       "removeDimensions", // width/height 제거, viewBox는 유지
+      // ── 보안: 악성 SVG 방어 (피그마에 심어진 스크립트/이벤트 핸들러 제거) ──
+      "removeScripts",                              // <script> 요소 제거
+      { name: "removeAttrs", params: { attrs: "on.*" } }, // onload/onclick 등 이벤트 핸들러 제거
     ],
   };
 }

@@ -169,6 +169,24 @@ const pascal = (name) =>
   name.split(/[_-]/).filter(Boolean).map((w) => w[0].toUpperCase() + w.slice(1)).join("");
 const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
+// 보안: 아이콘 SVG를 화면에 삽입하기 전에 스크립트·이벤트 핸들러를 제거 (XSS 방어)
+function sanitizeSvg(str) {
+  if (!str) return "";
+  const doc = new DOMParser().parseFromString(str, "image/svg+xml");
+  const root = doc.documentElement;
+  if (!root || root.nodeName === "parsererror") return "";
+  root.querySelectorAll("script, foreignObject").forEach((n) => n.remove());
+  root.querySelectorAll("*").forEach((el) => {
+    [...el.attributes].forEach((a) => {
+      const n = a.name.toLowerCase();
+      const isEvent = n.startsWith("on");
+      const isJsHref = /href$/i.test(n) && /^\s*javascript:/i.test(a.value);
+      if (isEvent || isJsHref) el.removeAttribute(a.name);
+    });
+  });
+  return root.outerHTML;
+}
+
 fetch(ICONS_JSON_URL)
   .then((r) => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
   .then((data) => {
@@ -219,7 +237,7 @@ function render() {
     const b = document.createElement("button");
     b.className = "cell" + (state.selected && state.selected.name === ic.name ? " selected" : "");
     b.title = ic.name;
-    b.innerHTML = '<span class="ico">' + (ic.svg || "") + "</span>";
+    b.innerHTML = '<span class="ico">' + sanitizeSvg(ic.svg) + "</span>";
     b.onclick = () => select(ic);
     frag.appendChild(b);
   }
@@ -245,7 +263,7 @@ function select(ic) {
   state.selected = ic;
   $("drawer").classList.add("open");
   $("backdrop").classList.add("open");
-  $("pvIco").innerHTML = ic.svg || "";
+  $("pvIco").innerHTML = sanitizeSvg(ic.svg);
   $("pvName").textContent = ic.name;
   $("pvMeta").textContent = [ic.category, ic.type, ic.weight].filter(Boolean).join(" · ");
   $("pvTags").innerHTML = (ic.keywords || []).map((k) => '<span class="tag">' + esc(k) + "</span>").join("");

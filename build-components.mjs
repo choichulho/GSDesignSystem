@@ -21,10 +21,19 @@ const pascal = (name) =>
     .map((w) => w[0].toUpperCase() + w.slice(1))
     .join("");
 
+// 보안: 스크립트 요소와 이벤트 핸들러 속성 제거 (export에서 이미 정화하지만 자체 방어)
+function stripDangerous(s) {
+  return s
+    .replace(/<script[\s\S]*?<\/script>/gi, "")
+    .replace(/<foreignObject[\s\S]*?<\/foreignObject>/gi, "")
+    .replace(/\son[a-z]+\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi, "");
+}
+
 // svg 문자열에서 viewBox와 안쪽 내용(paths 등)만 추출
 function parseSvg(svg) {
   const viewBox = (svg.match(/viewBox="([^"]+)"/) || [, "0 0 24 24"])[1];
-  const inner = svg.replace(/^[\s\S]*?<svg[^>]*>/, "").replace(/<\/svg>\s*$/, "").trim();
+  let inner = svg.replace(/^[\s\S]*?<svg[^>]*>/, "").replace(/<\/svg>\s*$/, "").trim();
+  inner = stripDangerous(inner);
   return { viewBox, inner };
 }
 
