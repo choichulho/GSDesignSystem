@@ -9,9 +9,9 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 
-const MANIFEST = "dist/icons.json";
-const REACT_DIR = "packages/react/src";
-const VUE_DIR = "packages/vue/src";
+const MANIFEST = "icons.json";
+const REACT_DIR = "react/src";
+const VUE_DIR = "vue/src";
 
 // icon_chevron_sort_down → IconChevronSortDown
 const pascal = (name) =>

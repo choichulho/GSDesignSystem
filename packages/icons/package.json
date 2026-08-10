@@ -1,0 +1,12 @@
+{
+  "name": "@gsds/icons",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "export": "node scripts/export-icons.mjs",
+    "build": "node scripts/build-components.mjs",
+    "sync": "pnpm export && pnpm build"
+  },
+  "devDependencies": { "svgo": "^4.0.0" }
+}

@@ -16,7 +16,7 @@ import { optimize } from "svgo";
 const FILE_KEY = "T5o6NvwlQUMIglYo6paNcJ";   // 피그마 파일 key (URL의 /design/ 뒤 문자열)
 const ONLY_PAGE = "[Icon]";                    // 이 문자열이 이름에 든 페이지만 내보냄. 모든 페이지를 대상으로 하려면 "" 로.
 const FIGMA_TOKEN = process.env.FIGMA_TOKEN;   // 토큰은 환경변수로 주입 (아래 실행법 참고)
-const OUT_DIR = "dist";                        // 결과물이 쌓일 폴더
+const OUT_DIR = ".";                        // 결과물이 쌓일 폴더
 const EMBED_SVG = true;                         // icons.json 안에 svg 코드까지 넣을지 (AI·사이트용)
 const ONLY_NAME_PREFIX = "";                    // 이 접두어로 시작하는 컴포넌트만 내보냄. ""이면 전부 내보냄(권장).
 const SKIP_DOT_NAMES = true;                    // 이름이 "."로 시작하는 보조 컴포넌트(.tokenCard 등)는 제외

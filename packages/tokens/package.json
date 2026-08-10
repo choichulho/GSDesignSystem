@@ -1,0 +1,12 @@
+{
+  "name": "@gsds/tokens",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "export": "node scripts/export-tokens.mjs",
+    "build": "node scripts/build-tokens.mjs",
+    "sync": "pnpm export && pnpm build"
+  },
+  "devDependencies": { "style-dictionary": "^4.4.0" }
+}
