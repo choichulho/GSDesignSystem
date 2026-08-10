@@ -1,4 +1,4 @@
-name: Sync Icons from Figma
+name: Sync Tokens from Figma
 
 on:
   workflow_dispatch:
@@ -29,22 +29,22 @@ jobs:
       - name: 의존성 설치
         run: pnpm install
 
-      - name: 피그마 → SVG + icons.json
+      - name: 피그마 Variables → tokens.json
         env:
           FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
-        run: pnpm --filter @gsds/icons export
+        run: pnpm --filter @gsds/tokens export
 
-      - name: SVG → React·Vue 컴포넌트
-        run: pnpm --filter @gsds/icons build
+      - name: tokens.json → CSS 변수
+        run: pnpm --filter @gsds/tokens build
 
       - name: 변경사항 커밋 & 푸시
         run: |
-          git config user.name "gs-icon-bot"
+          git config user.name "gs-token-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add packages/icons
+          git add packages/tokens
           if git diff --staged --quiet; then
-            echo "변경된 아이콘이 없습니다. 커밋을 건너뜁니다."
+            echo "변경된 토큰이 없습니다. 커밋을 건너뜁니다."
           else
-            git commit -m "chore(icons): 피그마 아이콘 동기화 [skip ci]"
+            git commit -m "chore(tokens): 피그마 토큰 동기화 [skip ci]"
             git push
           fi

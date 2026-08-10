@@ -1,14 +1,9 @@
 {
-  "name": "gs-icons",
-  "version": "1.0.0",
-  "type": "module",
+  "name": "gs-design-system",
   "private": true,
+  "type": "module",
   "scripts": {
-    "export": "node export-icons.mjs",
-    "build": "node build-components.mjs",
-    "sync": "node export-icons.mjs && node build-components.mjs"
-  },
-  "dependencies": {
-    "svgo": "^4.0.0"
+    "sync:icons": "pnpm --filter @gsds/icons sync",
+    "sync:tokens": "pnpm --filter @gsds/tokens sync"
   }
 }
