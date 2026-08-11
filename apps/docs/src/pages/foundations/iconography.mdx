@@ -1,0 +1,15 @@
+# Iconography
+
+아이콘은 명령, 기능, 디렉터리 또는 일반적인 작업의 시각적 표현이다.
+아이콘 데이터는 `icons.json`(파이프라인 산출물)을 소비해 렌더한다.
+
+## Library
+
+import { IconGallery } from '../../components/IconGallery'
+
+<IconGallery />
+
+## 갱신 흐름
+
+Figma에서 아이콘을 수정하면 **Sync Icons from Figma** 워크플로우가
+`packages/icons`를 갱신하고, 이 갤러리는 자동으로 최신 상태가 된다.

@@ -1,0 +1,25 @@
+/* GS 토큰 → 사이트 테마 연결이다.
+   원천: packages/tokens/dist/tokens.css (build-tokens.mjs 산출물)
+   아래 블록은 실제 파이프라인 출력과 동일한 형식이다. */
+:root {
+  --color-gsblue-500: #0f78ff;
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #eaecf5;
+  --color-gray-700: #5c5c70;
+  --color-gray-900: #191923;
+  --color-white: #ffffff;
+  --color-content-primary: var(--color-gray-900);
+  --color-background-primary: var(--color-white);
+  --color-background-brand-default: var(--color-gsblue-500);
+  --color-border-secondary: var(--color-gray-100);
+}
+.dark {
+  --color-content-primary: var(--color-gray-50);
+  --color-background-primary: var(--color-gray-900);
+  --color-border-secondary: var(--color-gray-700);
+}
+
+/* Vocs 테마 변수에 GS 토큰을 먹인다 — 사이트가 자기 토큰을 쓰는(dogfooding) 지점이다. */
+:root {
+  --vocs-color_textAccent: var(--color-background-brand-default);
+}
