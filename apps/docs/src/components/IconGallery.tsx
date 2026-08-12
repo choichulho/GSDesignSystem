@@ -88,8 +88,8 @@ export function IconGallery() {
         placeholder="person, car, 알파벳, etc..."
         style={{
           width: '100%', padding: '12px 16px', fontSize: 15,
-          border: '1px solid var(--vocs-color_border)', borderRadius: 12,
-          background: 'var(--vocs-color_background)', color: 'var(--vocs-color_text)',
+          border: '1px solid var(--vocs-color_border, #EAECF5)', borderRadius: 12,
+          background: 'var(--vocs-color_background, #FFF)', color: 'var(--vocs-color_text)',
           outline: 'none', marginBottom: 14,
         }}
       />
@@ -100,7 +100,7 @@ export function IconGallery() {
             onClick={() => setCategory(c)}
             style={{
               padding: '6px 14px', fontSize: 13.5, borderRadius: 999, cursor: 'pointer',
-              border: '1px solid var(--vocs-color_border)',
+              border: '1px solid var(--vocs-color_border, #EAECF5)',
               background: c === category ? 'var(--vocs-color_text)' : 'transparent',
               color: c === category ? 'var(--vocs-color_background)' : 'var(--vocs-color_text2)',
             }}
@@ -125,7 +125,7 @@ export function IconGallery() {
             title={`${icon.name} — 클릭해서 이름 복사`}
             style={{
               aspectRatio: '1', display: 'grid', placeItems: 'center', cursor: 'pointer',
-              border: '1px solid var(--vocs-color_border)', borderRadius: 14,
+              border: '1px solid var(--vocs-color_border, #EAECF5)', borderRadius: 14,
               background: copied === icon.id ? 'var(--vocs-color_backgroundAccent)' : 'var(--vocs-color_background)',
               color: 'var(--vocs-color_text)', padding: 0,
             }}
