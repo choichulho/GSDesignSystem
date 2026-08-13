@@ -9,7 +9,7 @@ const items = (base: string, names: string[]) =>
 export default defineConfig({
   title: 'GS Design System',
   logoUrl: '/logo.svg',
-  iconUrl: '/favicon.png',
+  iconUrl: '/favicon.ico',
   renderStrategy: 'full-static',
   description: 'GSSHOP AI-Ready 디자인 시스템',
   topNav: [
