@@ -65,6 +65,19 @@ Figma → export 스크립트 → JSON 산출물(packages/*) → Actions 봇 자
 - **네이밍**: 약어형(`xs·sm·md·lg`)으로 통일합니다. word-form과 약어를 혼용하지 마십시오.
 - **커밋**: `feat(docs): ...`, `fix(site): ...`, `chore(icons): ...` 형식을 씁니다.
 - **이동**: 파일 이동은 `git mv`로 합니다(히스토리 보존).
+- **MDX frontmatter**: `apps/docs/src/pages/**/*.mdx`에 **새 문서를 추가·개편할 때** YAML
+  frontmatter를 파일 최상단에 둡니다. 본문은 사람용, frontmatter는 AI·도구(`/llms.txt` 등)용
+  메타데이터입니다. `description`과 본문 첫 단락이 겹쳐도 됩니다.
+  - **공통**: `title`, `korean`, `description`, `category`, `status`, `version`, `lastUpdated`,
+    `platforms`, `figma`(fileKey·nodeId), `aliases`, `ai`(intents·doNotConfuseWith)
+  - **컴포넌트** (`components/*.mdx`): `code`(react·vue), `relatedComponents`, `tokensPrefix`
+  - **Foundations** (`foundations/*.mdx`): `package`(`@gsds/tokens`·`@gsds/icons` 등),
+    `relatedPages` 또는 `relatedComponents`
+  - **figma.fileKey**: 컴포넌트·토큰 → DS 파일 `nt54vMZZnxkgPQ5It6B0IU`, 아이콘 →
+    `packages/icons/scripts/export-icons.mjs`의 `FILE_KEY`. nodeId는 Figma URL에서 채우고, 모르면
+    `"TBD"`로 둡니다.
+  - **참고 예시**: `components/button.mdx`, `foundations/design-tokens.mdx`,
+    `foundations/iconography.mdx`
 
 ## 절대 손대지 말 것 (경계)
 
