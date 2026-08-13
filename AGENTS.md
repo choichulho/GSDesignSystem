@@ -32,6 +32,8 @@ packages/
 .github/workflows/ # sync-icons.yml, sync-tokens.yml
 ```
 
+
+
 ## 개발 명령
 
 ```bash
@@ -56,52 +58,66 @@ Figma → export 스크립트 → JSON 산출물(packages/*) → Actions 봇 자
 - 갱신은 Actions의 **Sync Icons / Sync Tokens** 워크플로우로 실행됩니다.
 - 봇 커밋 메시지는 `chore(icons): ...`, `chore(tokens): ...` 형식이며 `[skip ci]`를 붙입니다.
 
+
+
 ## 코드·문서 규약
 
 - **문체**: 모든 산출물 문서는 '합니다'체(`~합니다 / ~입니다 / ~됩니다`)로 씁니다. '하다'체
-  (`~한다 / ~이다`)는 쓰지 않습니다. 명령·지시는 `~하십시오` 형태로 씁니다. (SEED 방식)
+(`~한다 / ~이다`)는 쓰지 않습니다. 명령·지시는 `~하십시오` 형태로 씁니다.
 - **토큰 참조**: semantic 토큰은 primitive를 **참조**(`{color.gsblue.500}`)로 물어야 합니다.
-  raw hex를 직접 넣지 마십시오. 참조가 끊기면 다크모드·테마 전환이 깨집니다.
+raw hex를 직접 넣지 마십시오. 참조가 끊기면 다크모드·테마 전환이 깨집니다.
 - **네이밍**: 약어형(`xs·sm·md·lg`)으로 통일합니다. word-form과 약어를 혼용하지 마십시오.
 - **커밋**: `feat(docs): ...`, `fix(site): ...`, `chore(icons): ...` 형식을 씁니다.
 - **이동**: 파일 이동은 `git mv`로 합니다(히스토리 보존).
 - **MDX frontmatter**: `apps/docs/src/pages/**/*.mdx`에 **새 문서를 추가·개편할 때** YAML
-  frontmatter를 파일 최상단에 둡니다. 본문은 사람용, frontmatter는 AI·도구(`/llms.txt` 등)용
-  메타데이터입니다. `description`과 본문 첫 단락이 겹쳐도 됩니다.
+frontmatter를 파일 최상단에 둡니다. 본문은 사람용, frontmatter는 AI·도구(`/llms.txt` 등)용
+메타데이터입니다. `description`과 본문 첫 단락이 겹쳐도 됩니다.
   - **공통**: `title`, `korean`, `description`, `category`, `status`, `version`, `lastUpdated`,
-    `platforms`, `figma`(fileKey·nodeId), `aliases`, `ai`(intents·doNotConfuseWith)
-  - **컴포넌트** (`components/*.mdx`): `code`(react·vue), `relatedComponents`, `tokensPrefix`
+  `platforms`, `figma`(fileKey·nodeId), `aliases`, `ai`(intents·doNotConfuseWith)
+  - **컴포넌트** (`components/*.mdx`): `code`(react·vue), `relatedComponents`,
+    `tokenSource`, `tokenCollections`, `a11y`(role·wcag) — 선택 필드 포함 가능
   - **Foundations** (`foundations/*.mdx`): `package`(`@gsds/tokens`·`@gsds/icons` 등),
-    `relatedPages` 또는 `relatedComponents`
+  `relatedPages` 또는 `relatedComponents`
+  - **컴포넌트 가이드 템플릿**: `apps/docs/templates/component-guide-template.md`를 복사해
+    `apps/docs/src/pages/components/{slug}.mdx`로 작성합니다. 이미지는
+    `apps/docs/public/components/{slug}/`에 두고 본문에서는 `/components/{slug}/...`로
+    참조합니다. `vocs.config.ts` sidebar에 항목이 없으면 추가하십시오.
   - **figma.fileKey**: 컴포넌트·토큰 → DS 파일 `nt54vMZZnxkgPQ5It6B0IU`, 아이콘 →
-    `packages/icons/scripts/export-icons.mjs`의 `FILE_KEY`. nodeId는 Figma URL에서 채우고, 모르면
-    `"TBD"`로 둡니다.
+  `packages/icons/scripts/export-icons.mjs`의 `FILE_KEY`. nodeId는 Figma URL에서 채우고, 모르면
+  `"TBD"`로 둡니다.
   - **참고 예시**: `components/button.mdx`, `foundations/design-tokens.mdx`,
-    `foundations/iconography.mdx`
+  `foundations/iconography.mdx`, `templates/component-guide-template.md`
+
+
 
 ## 절대 손대지 말 것 (경계)
 
 - **생성물 직접 수정 금지**: `packages/icons/{svg,react,vue}`, `packages/icons/icons.json`,
-  `packages/tokens/dist/tokens.css`, `apps/docs/public/{icons,colors}.json`.
-  이들은 파이프라인이 만듭니다. 고칠 게 있으면 **Figma 원천을 고치고 sync를 실행하십시오.**
+`packages/tokens/dist/tokens.css`, `apps/docs/public/{icons,colors}.json`.
+이들은 파이프라인이 만듭니다. 고칠 게 있으면 **Figma 원천을 고치고 sync를 실행하십시오.**
 - **비밀 금지**: `FIGMA_TOKEN` 등 시크릿을 코드·커밋에 넣지 마십시오. `.env`를 커밋하지 마십시오.
 - **락파일**: `pnpm-lock.yaml`은 pnpm이 관리합니다. 손으로 편집하지 마십시오. 의존성을 바꿨으면
-  `pnpm install` 후 락파일을 **반드시 함께 커밋하십시오**(CI는 frozen-lockfile로 실행됩니다).
+`pnpm install` 후 락파일을 **반드시 함께 커밋하십시오**(CI는 frozen-lockfile로 실행됩니다).
+
+
 
 ## 환경 주의점 (검증된 함정)
 
 - **Vocs 문서 사이트**
   - `waku`는 반드시 `1.0.0-beta.8`로 **정확히 고정**합니다(`^` 금지). beta.9는 하이드레이션
-    크래시를 냅니다.
+  크래시를 냅니다.
   - 훅을 쓰는 인터랙티브 컴포넌트는 파일 첫 줄에 `'use client'`가 필수입니다.
   - 정적 배포에는 `vocs.config.ts`에 `renderStrategy: 'full-static'`이 필수입니다.
   - 빌드 출력은 `dist/public`입니다. Vercel Output Directory를 이걸로 지정합니다.
 - **파이프라인 스크립트**: 경로 상수는 패키지 루트 기준으로 씁니다. pnpm이 패키지 디렉터리를
-  CWD로 스크립트를 실행하기 때문입니다.
+CWD로 스크립트를 실행하기 때문입니다.
 - **반응형**: 4개 브레이크포인트(375/768/1024/1360px) 간 선형 보간(fluid)을 씁니다.
+
+
 
 ## Cursor 사용 시
 
 - 루트의 이 `AGENTS.md`는 항상 활성입니다. 파일 타입별(예: `*.tsx` 전용) 규칙이 필요하면
-  `.cursor/rules/*.mdc`로 분리합니다.
+`.cursor/rules/*.mdc`로 분리합니다.
 - 에이전트에게 대량 자동 수정을 맡기기 전에 먼저 커밋해서 되돌릴 수 있게 하십시오.
+
