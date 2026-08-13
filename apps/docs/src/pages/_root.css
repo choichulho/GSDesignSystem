@@ -1,0 +1,6 @@
+/* On this page 목차 글자 크기 */
+[data-v-outline-nav],
+[data-v-outline-items],
+[data-v-outline-items] a {
+  font-size: 12px !important;
+}
