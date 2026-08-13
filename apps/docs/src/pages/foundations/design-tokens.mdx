@@ -1,24 +1,44 @@
+---
+title: "Design Tokens"
+korean: "디자인 토큰"
+description: "Figma Variables를 단일 원천으로 하는 색·타입·spacing 등 디자인 값의 CSS 변수 계층입니다."
+category: "foundations/tokens"
+status: "draft"
+version: "0.1.0"
+lastUpdated: "2026-08-13"
+platforms: [web, android, ios, flutter]
+figma:
+  fileKey: "nt54vMZZnxkgPQ5It6B0IU"
+  nodeId: "TBD"
+package: "@gsds/tokens"
+aliases: [토큰, CSS Variables, Design Variables, 변수]
+relatedPages: [Color, Typography, Spacing, Radius, Border, Elevation, Opacity]
+ai:
+  intents: [색상·spacing 적용, semantic 토큰 참조, 다크모드 테마, CSS 변수 import, primitive vs semantic 구분]
+  doNotConfuseWith: [raw hex, primitive 직접 사용, 하드코딩된 px/rem, 컴포넌트 전용 스타일]
+---
+
 # Design Tokens
 
-토큰은 Figma Variables를 단일 원천으로 하며, 파이프라인이 자동으로 동기화한다.
+토큰은 Figma Variables를 단일 원천으로 하며, 파이프라인이 자동으로 동기화합니다.
 
 ## 계층 구조
 
-Primitive → Semantic → Component 3계층을 따른다. Semantic 토큰은 Primitive를
-참조(`{color.gsblue.500}`)로 가리키며, 빌드 시 CSS 변수의 `var()`로 보존된다.
+Primitive → Semantic → Component 3계층을 따릅니다. Semantic 토큰은 Primitive를
+참조(`{color.gsblue.500}`)로 가리키며, 빌드 시 CSS 변수의 `var()`로 보존됩니다.
 
 ## 갱신 흐름
 
-1. Figma Variables를 수정한다.
-2. GitHub Actions의 **Sync Tokens from Figma**를 실행한다.
-3. 봇이 `packages/tokens`를 갱신 커밋하면 사이트가 재배포된다.
+1. Figma Variables를 수정하십시오.
+2. GitHub Actions의 **Sync Tokens from Figma**를 실행하십시오.
+3. 봇이 `packages/tokens`를 갱신 커밋하면 사이트가 재배포됩니다.
 
 ```css
 /* build/tokens.css 출력 예시 */
 :root {
-  --color-content-primary: var(--color-gray-900);
+  --color-text-primary: var(--color-gray-900);
 }
 [data-theme="dark"] {
-  --color-content-primary: var(--color-gray-50);
+  --color-text-primary: var(--color-gray-50);
 }
 ```
