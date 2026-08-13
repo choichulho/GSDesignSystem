@@ -1,74 +1,469 @@
+---
+title: "Button"
+korean: "버튼"
+description: "사용자의 행동을 실행하거나 플로우를 진행시키는 가장 기본적인 인터랙션 컴포넌트입니다."
+category: "components/actions"
+status: "draft"
+version: "0.1.0"
+lastUpdated: "2026-08-13"
+platforms: [web, android, ios, flutter]
+figma:
+  fileKey: "nt54vMZZnxkgPQ5It6B0IU"
+  nodeId: "TBD"
+code:
+  react: "@gs/design-system-react"
+  vue: "@gs/design-system-vue"
+aliases: [CTA, Action Button, Call to Action, 액션 버튼]
+relatedComponents: [IconButton, TextLink, Chip, ButtonGroup]
+tokensPrefix: "sys"
+ai:
+  intents: [제출, 결제, 확인, 취소, 저장, 다음 단계 진행, 액션 실행, 폼 전송]
+  doNotConfuseWith: [TextLink, Chip, Tab, IconButton]
+---
+
 # Button
 
-버튼(Buttons)은 사용자가 **특정 행동을 취하고, 선택을 확정하며, 흐름(Flow)을 앞으로 진행**할 수 있도록 돕는 컨트롤(조작 요소)입니다.
+사용자의 행동을 실행하거나 플로우를 진행시키는 가장 기본적인 인터랙션 컴포넌트입니다.
 
-## Anatomy
+**다른 이름 (Common Alternative Names):** CTA, Action Button, Call to Action, 액션 버튼
 
-- Container
-- Label
-- Leading Icon (optional)
-- Trailing Icon (optional)
+---
 
-## Variants
+## 1. 개요 (Overview)
+
+Button은 사용자가 액션을 실행하고, 선택을 확정하고, 플로우의 다음 단계로 이동하게 하는 컨트롤입니다. 인터페이스 내에서 행동의 우선순위를 시각적 위계로 안내하는 역할을 하며, 폼 제출·결제·저장·확인·취소 같은 상태 변화를 일으키는 모든 상호작용의 진입점이 됩니다.
+
+### 원칙 (Principles)
+
+- **행동 예측 가능 (Actionable):** 라벨만 보고도 눌렀을 때 무슨 일이 일어날지 예측할 수 있어야 합니다.
+- **맥락 위계 (Contextual):** 화면의 다른 요소들과 함께 작동하며, 해당 맥락에서 가장 중요한 액션이 가장 눈에 띄어야 합니다.
+- **일관된 위치 (Consistent):** 동일한 성격의 액션은 서비스 전반에서 일관된 위치·스타일로 나타납니다.
+
+---
+
+## 2. 사용 시점 (When to Use)
+
+### 사용합니다 (Use when)
+
+- 액션을 실행하거나 시스템 상태를 변경할 때 사용합니다. (예: 폼 제출, 결제, 저장, 삭제 확인)
+- 플로우를 앞으로 진행시키거나 되돌릴 때 사용합니다. (예: 다음, 이전, 건너뛰기)
+- Dropdown·Popover·Dialog 등 다른 컴포넌트를 여는 트리거로 사용합니다.
+
+### 사용하지 않습니다 (When NOT to Use)
+
+- 다른 페이지나 화면으로 이동하는 내비게이션에는 사용하지 않습니다. 대신 **TextLink**를 사용하십시오. 링크 라벨은 "여행 상세 보기"처럼 목적지를 설명합니다.
+- 아이콘만으로 충분하고 공간이 제한된 경우에는 사용하지 않습니다. 대신 **IconButton**을 사용하십시오.
+- 필터·옵션의 선택 상태를 표현할 때는 사용하지 않습니다. 대신 **Chip**을 사용하십시오. (10. 비교 참조)
+- URL 단위의 페이지 전환 내비게이션에는 사용하지 않습니다. 대신 **Tab**을 사용하십시오.
+
+---
+
+## 3. 해부 구조 (Anatomy)
+
+![Button Anatomy — Container, Label, Prefix Icon, Suffix Icon]
+
+| 번호 | 슬롯 (Slot) | 필수 여부 | 설명 |
+| :-- | :-- | :-- | :-- |
+| 1 | Container (root) | 필수 | 클릭·탭 가능한 전체 영역입니다. 터치 타겟 크기를 보장합니다. |
+| 2 | Label | 필수* | 버튼이 수행할 액션을 설명하는 텍스트입니다. |
+| 3 | Prefix Icon | 선택 | 라벨 앞에 위치해 액션의 의미를 시각적으로 보조합니다. (예: 하트 + "찜하기") |
+| 4 | Suffix Icon | 선택 | 라벨 뒤에 위치해 다음 동작을 암시합니다. (예: 메뉴가 열림을 알리는 Chevron) |
+| 5 | Progress Circle | 상태 종속 | `loading` 상태에서 라벨을 대체하는 로딩 인디케이터입니다. |
+
+\* `layout=iconOnly`는 Label이 없는 대신 접근성 레이블(`aria-label`)이 필수입니다. 별도 컴포넌트인 **IconButton** 사용을 우선 검토하십시오.
+
+---
+
+## 4. 속성 (Properties)
+
+### 4.1 Variant
+
+Variant는 버튼의 강조 수준과 의도를 정의합니다.
 
 | Variant | 용도 |
-| --- | --- |
-| Primary | 화면의 대표 동작입니다 |
-| Secondary | 보조 동작입니다 |
-| Ghost | 낮은 강조의 동작입니다 |
+| :-- | :-- |
+| `brandSolid` | 브랜드 정체성이 실리는 핵심 CTA에 사용합니다. (예: 구매하기, 결제하기) 한 화면에 하나만 사용합니다. |
+| `neutralSolid` | 브랜드 컬러 없이 고대비로 강조하는 CTA에 사용합니다. 한 화면에 하나만 사용합니다. |
+| `neutralWeak` | CTA를 제외한 대부분의 액션에 사용합니다. Solid와 조합 시 보조 액션 역할을 합니다. |
+| `brandOutline` | Solid보다 낮은 중요도의 액션에 사용합니다. Solid 계열과 나란히 사용하지 않습니다. |
+| `neutralOutline` | 가장 낮은 위계의 보조 액션에 사용합니다. `brandOutline`과 조합해 사용합니다. |
+| `criticalSolid` | 삭제·초기화처럼 되돌릴 수 없는 파괴적 액션의 최종 확인에 사용합니다. 주로 Alert Dialog 안에서 사용합니다. |
+| `ghost` | 배경 없이 텍스트·아이콘만 표시합니다. 닫기·건너뛰기 같은 dismiss 액션에 사용합니다. |
 
-> 이 표는 추후 `components.json`(export-components 산출물)에서 자동 생성합니다.
+> ⚠ 확인 필요 — Variant 구성은 SEED 7종 체계를 기준으로 한 제안이며, GSSHOP 브랜드 요건에 따라 확정합니다.
 
-## Sizes
+### 4.2 Size
 
-| Size | Height | Padding | Font |
-| --- | --- | --- | --- |
-| S | - | - | - |
-| M | - | - | - |
-| L | - | - | - |
+| Size | 높이 (참고, 패딩+라벨 라인하이트로 산출) | 용도 |
+| :-- | :-- | :-- |
+| `lg` | `$spacing/140`×2 + `$label/large/line-height` ≈ 48px ⚠ 확인 필요 | 화면 하단 고정 CTA, 강조가 필요한 프로미넌트 액션 |
+| `md` | `$spacing/100`×2 + `$label/medium/line-height` ≈ 40px ⚠ 확인 필요 | 기본값. 화면 중앙 범용 액션 |
+| `sm` | `$spacing/60`×2 + `$label/small/line-height` ≈ 32px ⚠ 확인 필요 | 카드·리스트 내부, 밀도 높은 레이아웃 |
+| `xs` | Pill 형태 (`$radius/full`) | 작은 공간의 인라인 보조 액션 |
 
-> 사이즈 값은 Figma 컴포넌트 스펙과 동기화됩니다. `components.json` 파이프라인 연결 후 자동으로 채웁니다.
+사이즈 키는 토큰 체계와 동일하게 약어형(`xs`/`sm`/`md`/`lg`)으로 통일합니다.
 
-## States
+> **참고 — 버튼 높이는 고정 토큰이 아닙니다.** `gsshop-token-ver0813.json`에는 컴포넌트 전용 dimension 컬렉션(예: `Component: Button`)이 아직 없습니다. 버튼 높이는 Figma에서 auto-layout으로 "패딩(spacing 토큰) + 라벨 line-height(typography 토큰)" 조합으로 산출되는 파생값이며, 별도의 `height`/`minHeight` 토큰을 참조하지 않습니다. 향후 컴포넌트 전용 컬렉션이 추가되면 이 표를 직접 토큰 참조로 교체합니다.
 
-- default
-- hover
-- pressed
-- focus
-- disabled
-- loading
+### 4.3 Layout
 
-## Usage
+| Layout | 구성 | 비고 |
+| :-- | :-- | :-- |
+| `textOnly` | Label만 | 기본값 |
+| `withPrefixIcon` | Prefix Icon + Label | 액션 의미를 보조할 때만 사용합니다 |
+| `withSuffixIcon` | Label + Suffix Icon | 방향성·확장 동작을 암시할 때 사용합니다 |
+| `iconOnly` | Icon만 | 접근성이 떨어지므로 꼭 필요한 경우에만 접근성 레이블과 함께 사용합니다 |
 
-- 한 화면에 Primary 버튼은 하나만 둡니다.
-- 파괴적 동작에는 확인 다이얼로그를 함께 사용합니다.
+Prefix와 Suffix 아이콘을 동시에 표시하지 않습니다. 아이콘은 버튼당 1개입니다.
 
-## Token Mapping
+### 4.4 State
 
-| Property | Token |
-| --- | --- |
-| Background (default) | - |
-| Background (hover) | - |
-| Background (pressed) | - |
-| Background (disabled) | - |
-| Text (default) | - |
-| Text (disabled) | - |
-| Border | - |
-| Radius | - |
-| Padding | - |
-| Font | - |
+| State | 진입 조건 | 인터랙션 가능 여부 |
+| :-- | :-- | :-- |
+| `enabled` | 기본 상태 | 가능 |
+| `hover` | 포인터가 올라간 상태 (웹 전용) | 가능 |
+| `pressed` | 탭·클릭이 눌려 있는 상태 | 가능 |
+| `focused` | 키보드 포커스를 받은 상태 | 가능 |
+| `loading` | 액션 처리 중. 라벨이 Progress Circle로 대체되고 추가 입력이 차단됩니다 | 불가 |
+| `disabled` | 현재 조건에서 수행할 수 없는 액션 | 불가 |
 
-> 토큰 매핑은 Component 계층 토큰(`components.json`)에서 자동 생성합니다.
+`loading` 상태는 탭 후 **1000ms 지연** 뒤에 표시합니다. 빠른 응답에서 스피너가 깜빡이는 현상을 방지합니다. `loading` 중에는 배경색을 disabled처럼 바꾸지 않고 콘텐츠만 교체합니다.
 
-## Do / Don't
+### 4.5 Width
 
-**Do**
-- 화면당 Primary 1개를 권장합니다
+| Width | 동작 |
+| :-- | :-- |
+| `hug` | 콘텐츠 길이에 맞춰 너비가 결정됩니다 (기본값) |
+| `fill` | 부모 컨테이너의 전체 너비를 채웁니다. 하단 고정 CTA, 좁은 콘텐츠 영역에서 사용합니다 |
 
-**Don't**
-- opacity로 disabled 표현은 사용하지 않습니다
+- 최소 너비는 버튼 높이의 **2배**로 합니다. 작은 버튼도 식별 가능한 형태를 유지합니다.
+- 최대 너비는 버튼 높이의 **10배**를 넘지 않습니다.
 
-## Accessibility
+---
 
-- 최소 터치 영역 44×44px을 준수합니다.
-- 아이콘만 있는 버튼에는 `aria-label`을 부여합니다.
+## 5. 위계와 조합 (Hierarchy & Composition)
+
+버튼의 시각적 주목도는 배경색 대비에 따라 결정됩니다. 화면에서 강조하려는 정도에 맞는 Variant를 선택하십시오.
+
+| Emphasis | Variant | 화면 내 개수 | 용도 |
+| :-- | :-- | :-- | :-- |
+| High (강한 대비 배경) | `brandSolid` `neutralSolid` `criticalSolid` | 1개 | 가장 중요한 단일 CTA |
+| Medium (약한 대비 배경) | `neutralWeak` | 여러 개 | 대부분의 액션. High emphasis와 조합 |
+| Low (투명 배경) | `brandOutline` `neutralOutline` `ghost` | 여러 개 | 중요도 낮은 보조 액션 |
+
+### 조합 규칙
+
+- **Solid 조합:** `neutralWeak` + `brandSolid`(또는 `neutralSolid`) 조합으로 위계를 명확히 합니다. 보조 버튼이 취소·닫기 같은 dismiss 의미를 가질 때는 **3:7 너비 비율**을 권장합니다.
+- **Outline 조합:** `neutralOutline` + `brandOutline`을 나란히 배치해 낮은 강조의 서브 액션 쌍을 표현합니다. Solid 계열과는 나란히 사용하지 않습니다.
+- **개수 제한:** 같은 위계의 버튼을 3개 이상 나란히 배치하지 않습니다. 액션이 2개를 초과하면 IconButton(더보기)으로 추가 액션을 수납합니다.
+- **배치:** Primary 버튼은 버튼 그룹에서 우측(가로 배치) 또는 상단(세로 스택)에 둡니다.
+
+---
+
+## 6. 사용 가이드라인 (Guidelines)
+
+### ✅ Do
+
+- 한 화면(또는 한 영역)에는 High emphasis 버튼을 하나만 두십시오. 사용자가 다음 행동을 고민하지 않게 합니다.
+- 버튼 텍스트는 전체를 노출하십시오. 가로로 나란히 놓을 수 없으면 세로로 스택하십시오.
+- 다른 인터랙션 요소와 `$spacing/160`(16px) 이상의 여백을 확보해 오탭을 방지하십시오.
+- disabled 사유를 설명해야 한다면 disabled 버튼 옆에 IconButton + Tooltip을 배치하십시오.
+- 가능하면 버튼을 disabled로 두지 말고, 활성 상태로 유지한 뒤 누락 정보를 에러 메시지로 안내하십시오. disabled 버튼은 키보드·스크린 리더에서 발견되지 않습니다.
+
+### ❌ Don't
+
+- 한 화면에 Primary(High emphasis) 버튼을 2개 이상 배치하지 않습니다. 다음 행동의 명확성이 떨어집니다.
+- 버튼 텍스트를 말줄임하지 않습니다. 불가피하게 한 줄을 유지해야 하면 Primary보다 Secondary의 텍스트를 먼저 줄입니다.
+- 텍스트를 장식적으로 보강하려고 아이콘을 남용하지 않습니다. UI에 불필요한 노이즈가 생깁니다.
+- 라벨 앞뒤에 아이콘을 동시에 표시하지 않습니다.
+- disabled 버튼에 Tooltip을 직접 붙이지 않습니다. 키보드·스크린 리더 사용자가 접근할 수 없습니다.
+- Brand 컬러를 무분별하게 사용하지 않습니다. 강조가 분산되어 핵심 CTA의 효과가 감소합니다.
+
+---
+
+## 7. 콘텐츠 작성 (Content / UX Writing)
+
+- 라벨은 **동사 + 목적어** 구조로, 눌렀을 때 일어날 일을 설명합니다. (예: `찜 목록에 추가`, `장바구니에서 삭제하기`)
+- 화면에 대상이 이미 설명되어 있으면 동사만으로 충분합니다. (예: `저장`)
+- 형용사·과거형·모호한 응답형 라벨을 사용하지 않습니다. (예: ~~`네`~~, ~~`완료됨`~~)
+- 명사 나열보다 행동을 촉구하는 동사형 맺음말을 사용합니다. (예: `결제` ➔ `결제하기`)
+- 모바일에서 줄바꿈되지 않도록 띄어쓰기 포함 **최대 10자**를 권장합니다.
+- 문장부호를 사용하지 않습니다.
+- 동일한 액션에는 서비스 전반에서 동일한 단어와 톤을 유지합니다.
+
+### 로컬라이제이션 (Localization)
+
+- 번역 시 텍스트가 20~30% 길어질 수 있음을 전제로 레이아웃을 설계하십시오.
+- 긴 라벨·폰트 스케일링으로 오버플로가 발생하면 구현체의 Responsive Pair 유틸리티로 좌우 배치를 상하 배치로 자동 전환합니다. ⚠ 확인 필요 — GS 구현체 지원 여부
+
+---
+
+## 8. 반응형 대응 (Responsive)
+
+| 구간 | 기준 | 동작 |
+| :-- | :-- | :-- |
+| Mobile | ~767px | 하단 고정(Bottom Fixed) CTA는 좌우 여백 `$spacing/160`(16px)에 `width=fill`로 배치합니다. 높이 48px 이상을 보장합니다. |
+| Tablet | 768px~ | `width=hug` 기본. CTA는 콘텐츠 영역 기준으로 정렬합니다. |
+| Laptop | 1024px~ | Tablet과 동일 |
+| Desktop | 1360px~ | Tablet과 동일. 고정폭 버튼은 콘텐츠 리딩 사이드에 정렬합니다. |
+
+---
+
+## 9. 접근성 (Accessibility)
+
+### 터치 타겟
+
+- 시각적 크기와 무관하게 최소 터치 타겟 **48×48px**을 보장하십시오. `sm`·`xs` 사이즈도 히트 영역을 48px로 확장합니다.
+- 웹 포인터 입력(마우스·스타일러스)의 최소 클릭 타겟은 **28×28px**입니다.
+
+### 키보드 인터랙션 (Keyboard Interactions)
+
+| 키 | 동작 |
+| :-- | :-- |
+| `Tab` | 버튼으로 포커스를 이동합니다. 포커스 링이 표시됩니다. |
+| `Enter` / `Space` | 버튼을 실행합니다. |
+
+### 스크린 리더 / ARIA
+
+- `role`: `button` (네이티브 `<button>` 요소 사용을 원칙으로 합니다)
+- 라벨만으로 맥락이 부족하면 `aria-label`로 보완하십시오. (예: "팔로우" ➔ "OO 브랜드 팔로우", "구매하기" ➔ "OO 상품 구매하기")
+- Popover·Dropdown을 여는 트리거로 사용할 때는 `aria-haspopup`, `aria-expanded`, `aria-controls`를 함께 전달하십시오.
+- `loading` 상태는 `aria-busy="true"`로 전달합니다.
+- 말줄임은 스타일로만 처리해 스크린 리더가 전체 텍스트를 읽게 합니다.
+
+### 색상 대비
+
+- 라벨·아이콘은 배경 대비 **4.5:1** 이상을 유지하십시오. `disabled` 상태는 대비 기준 예외입니다 (WCAG 1.4.3).
+
+---
+
+## 10. 유사 컴포넌트 비교 (Comparison)
+
+| | Button | Chip | TextLink |
+| :-- | :-- | :-- | :-- |
+| **목적** | 액션 실행 | 정보 표현 + 선택 표현 | 목적지로 이동 |
+| **예시** | `결제하기`, `제출`, `다음`, `삭제` | 필터(`서초4동 외 34`), 옵션(`0~6개월`) | `배송 정책 보기`, `이용약관` |
+| **라벨 성격** | 라벨만 봐도 액션이 예상됩니다 | 현재 활성화된 조건·정보를 표시합니다 | 목적지를 설명합니다 |
+| **사용 패턴** | 단일로도 사용 가능 | 2개 이상 그룹 사용 권장 | 본문 안 또는 곁에 배치 |
+
+---
+
+## 11. 스펙 (Specification)
+
+> 이 표는 AI 코드 생성과 Figma 바인딩 검증의 단일 진실 공급원입니다. 토큰 경로는 `gsshop-token-ver0813.json`(Figma Variables 원본)의 변수명을 그대로 따르며, `$` + 슬래시 경로(`/`)로 표기합니다. 컬러 토큰은 `Semantic: Color`(Light/Dark 모드), 스페이싱·라운드·아이콘 사이즈는 `Semantic: Appearance`, 타이포그래피는 `Semantic: Typography` 컬렉션에서 가져옵니다. `sys` 같은 별도 접두어는 사용하지 않습니다 — 실제 파일에 존재하지 않는 계층이기 때문입니다.
+>
+> ⚠ 확인 필요 — Variant↔토큰 매핑은 이 토큰 세트를 기준으로 한 제안이며, 실제 Figma Button 컴포넌트 바인딩과 대조 후 확정합니다. 아래 표에 등장하지 않는 원시값(px)은 파생 계산값이거나 아직 토큰화되지 않은 항목입니다.
+
+### base
+
+| 상태 | 슬롯 | 속성 | 값 |
+| :-- | :-- | :-- | :-- |
+| enabled | label | fontFamily | `$label/font-family/font-family` |
+| | label | fontWeight | `$label/font-weight/bold` |
+
+> Motion(전환 duration·easing) 토큰 컬렉션은 `gsshop-token-ver0813.json`에 아직 없습니다. `Motion` 또는 `Semantic: Motion` 컬렉션이 추가되면 여기에 `colorDuration`/`colorTimingFunction` 행을 채웁니다.
+
+### variant=brandSolid
+
+브랜드 핵심 액션입니다. 배경은 GS Blue 계열(`color/background/brand/*`)을 사용합니다.
+
+| 상태 | 슬롯 | 속성 | 값 |
+| :-- | :-- | :-- | :-- |
+| enabled | root | background | `$color/background/brand/default` |
+| | label | color | `$color/text/brand/on-brand` |
+| | prefixIcon / suffixIcon | color | `$color/icon/brand/on-brand` |
+| hover | root | background | `$color/background/brand/hover` |
+| pressed | root | background | `$color/background/brand/pressed` |
+| focused | root | outline | `$color/border/focus/default` |
+| disabled | root | background | `$color/background/disabled/default` |
+| | label | color | `$color/text/disabled/on-disabled` |
+| | icon | color | `$color/icon/disabled/on-disabled` |
+| loading | root | background | `$color/background/brand/pressed` |
+
+### variant=neutralSolid
+
+고대비 CTA입니다. 배경은 inverse(다크) 계열을 사용하며, 별도 hover/pressed 스와치가 없어 `state-layer`를 오버레이로 얹습니다.
+
+| 상태 | 슬롯 | 속성 | 값 |
+| :-- | :-- | :-- | :-- |
+| enabled | root | background | `$color/background/inverse/primary` |
+| | label | color | `$color/text/inverse/primary` |
+| | prefixIcon / suffixIcon | color | `$color/icon/inverse/default` |
+| hover | root | overlay | `$color/state-layer/hover-on-strong` |
+| pressed | root | overlay | `$color/state-layer/pressed-on-strong` |
+| disabled | root | background | `$color/background/disabled/default` |
+| | label | color | `$color/text/disabled/on-disabled` |
+
+### variant=neutralWeak
+
+CTA를 제외한 대부분의 액션입니다. 배경은 subtle gray 계열입니다.
+
+| 상태 | 슬롯 | 속성 | 값 |
+| :-- | :-- | :-- | :-- |
+| enabled | root | background | `$color/background/neutral/subtle` |
+| | label | color | `$color/text/neutral/default` |
+| | prefixIcon / suffixIcon | color | `$color/icon/neutral/default` |
+| hover | root | background | `$color/background/neutral/subtle-hover` |
+| pressed | root | background | `$color/background/neutral/subtle-pressed` |
+| disabled | root | background | `$color/background/disabled/default` |
+| | label | color | `$color/text/disabled/default` |
+
+### variant=neutralOutline / brandOutline
+
+배경 없이 stroke로 경계를 표현합니다. hover/pressed는 상태별 배경 스와치 대신 `state-layer` 오버레이를 transparent 배경 위에 얹습니다.
+
+| 상태 | 슬롯 | 속성 | 값 |
+| :-- | :-- | :-- | :-- |
+| enabled | root | background | `$color/background/transparent/default` |
+| | root | borderColor | `$color/border/neutral/default` (neutral) / `$color/border/brand/default` (brand) |
+| | root | borderWidth | `$stroke/sm` (1px) |
+| | label | color | `$color/text/neutral/default` (neutral) / `$color/text/brand/default` (brand) |
+| | prefixIcon / suffixIcon | color | `$color/icon/neutral/default` (neutral) / `$color/icon/brand/default` (brand) |
+| pressed | root | overlay | `$color/state-layer/pressed` |
+| focused | root | outline | `$color/border/focus/default` |
+| disabled | root | borderColor | `$color/border/disabled/default` |
+| | label | color | `$color/text/disabled/default` |
+
+### variant=criticalSolid
+
+삭제·초기화 등 파괴적 액션의 최종 확인입니다. 배경은 error 계열을 사용합니다.
+
+| 상태 | 슬롯 | 속성 | 값 |
+| :-- | :-- | :-- | :-- |
+| enabled | root | background | `$color/background/error/default` |
+| | label | color | `$color/text/static/white` ⚠ 확인 필요 — error 전용 on-error 텍스트 토큰 부재, static/white로 대체 제안 |
+| | prefixIcon / suffixIcon | color | `$color/icon/static/white` ⚠ 확인 필요 (위와 동일 사유) |
+| hover | root | background | `$color/background/error/hover` |
+| pressed | root | background | `$color/background/error/pressed` |
+| disabled | root | background | `$color/background/disabled/default` |
+| | label | color | `$color/text/disabled/default` |
+
+### variant=ghost
+
+배경 없이 텍스트·아이콘만 표시합니다. dismiss류 저강조 액션에 사용합니다.
+
+| 상태 | 슬롯 | 속성 | 값 |
+| :-- | :-- | :-- | :-- |
+| enabled | root | background | 없음 (완전 투명) |
+| | label | color | `$color/text/neutral/default` |
+| | prefixIcon / suffixIcon | color | `$color/icon/neutral/default` |
+| pressed | root | overlay | `$color/state-layer/pressed` |
+| disabled | label | color | `$color/text/disabled/default` |
+
+### size=lg
+
+| 상태 | 슬롯 | 속성 | 값 |
+| :-- | :-- | :-- | :-- |
+| enabled | root | paddingX | `$spacing/200` (20px) ⚠ 확인 필요 |
+| | root | paddingY | `$spacing/140` (14px) ⚠ 확인 필요 |
+| | root | gap | `$spacing/80` (8px) |
+| | root | cornerRadius | `$radius/lg` (8px) ⚠ 확인 필요 |
+| | label | fontSize | `$label/large/font-size` (14px) |
+| | label | lineHeight | `$label/large/line-height` |
+| | label | letterSpacing | `$label/large/letter-spacing` |
+| | prefixIcon / suffixIcon | size | `$icon/md` (24px) |
+
+### size=md (기본값)
+
+| 상태 | 슬롯 | 속성 | 값 |
+| :-- | :-- | :-- | :-- |
+| enabled | root | paddingX | `$spacing/160` (16px) ⚠ 확인 필요 |
+| | root | paddingY | `$spacing/100` (10px) ⚠ 확인 필요 |
+| | root | gap | `$spacing/60` (6px) |
+| | root | cornerRadius | `$radius/md` (6px) ⚠ 확인 필요 |
+| | label | fontSize | `$label/medium/font-size` (13px) |
+| | label | lineHeight | `$label/medium/line-height` |
+| | label | letterSpacing | `$label/medium/letter-spacing` |
+| | prefixIcon / suffixIcon | size | `$icon/sm` (20px) |
+
+### size=sm
+
+| 상태 | 슬롯 | 속성 | 값 |
+| :-- | :-- | :-- | :-- |
+| enabled | root | paddingX | `$spacing/120` (12px) ⚠ 확인 필요 |
+| | root | paddingY | `$spacing/60` (6px) ⚠ 확인 필요 |
+| | root | gap | `$spacing/40` (4px) |
+| | root | cornerRadius | `$radius/sm` (4px) ⚠ 확인 필요 |
+| | label | fontSize | `$label/small/font-size` (12px) |
+| | label | lineHeight | `$label/small/line-height` |
+| | label | letterSpacing | `$label/small/letter-spacing` |
+| | prefixIcon / suffixIcon | size | `$icon/xs` (18px) |
+
+### size=xs (Pill)
+
+| 상태 | 슬롯 | 속성 | 값 |
+| :-- | :-- | :-- | :-- |
+| enabled | root | paddingX | `$spacing/80` (8px) ⚠ 확인 필요 |
+| | root | cornerRadius | `$radius/full` |
+| | label | fontSize | `$label/xsmall/font-size` (11px) |
+| | label | lineHeight | `$label/xsmall/line-height` |
+| | prefixIcon / suffixIcon | size | `$icon/xxs` (16px) |
+
+---
+
+## 12. 플랫폼 API (API Reference)
+
+### React
+
+```tsx
+import { Button } from '@gs/design-system-react';
+
+// 기본 사용
+<Button variant="brandSolid" size="lg" width="fill" onClick={handleSubmit}>
+  결제하기
+</Button>
+
+// 아이콘 포함
+<Button variant="neutralWeak" size="md" prefixIcon={<IconHeart />}>
+  찜하기
+</Button>
+
+// 로딩 상태
+<Button variant="brandSolid" size="lg" loading>
+  결제하기
+</Button>
+```
+
+| Prop | Type | Default | 설명 |
+| :-- | :-- | :-- | :-- |
+| `variant` | `'brandSolid' \| 'neutralSolid' \| 'neutralWeak' \| 'brandOutline' \| 'neutralOutline' \| 'criticalSolid' \| 'ghost'` | `'neutralWeak'` | 버튼의 시각적 위계와 의도 |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | `'md'` | 버튼의 크기 |
+| `width` | `'hug' \| 'fill'` | `'hug'` | 너비 결정 방식 |
+| `disabled` | `boolean` | `false` | 비활성화 여부 |
+| `loading` | `boolean` | `false` | 로딩 상태 여부. true면 라벨이 스피너로 대체되고 입력이 차단됩니다 |
+| `prefixIcon` | `ReactNode` | — | 라벨 앞 아이콘. `suffixIcon`과 동시에 사용하지 않습니다 |
+| `suffixIcon` | `ReactNode` | — | 라벨 뒤 아이콘 |
+| `type` | `'button' \| 'submit'` | `'button'` | 폼 연동 시 `'submit'`을 사용합니다 |
+| `aria-label` | `string` | — | 라벨만으로 맥락이 부족할 때 스크린 리더용 대체 텍스트 |
+| `onClick` | `(event) => void` | — | 클릭·키보드 실행 콜백 |
+
+### Vue
+
+```vue
+<GSButton variant="brandSolid" size="lg" width="fill" @click="handleSubmit">
+  결제하기
+</GSButton>
+```
+
+Props 사양은 React와 동일합니다. 이벤트는 `@click`으로 바인딩합니다.
+
+### Android — TBD
+### iOS — TBD
+### Flutter — TBD
+
+---
+
+## 13. 관련 컴포넌트 (Related)
+
+- **IconButton:** 텍스트 없이 아이콘만 필요한 액션에 사용합니다.
+- **TextLink:** 액션이 아니라 이동(내비게이션)이 목적일 때 사용합니다.
+- **ButtonGroup:** 여러 버튼을 나란히 배치할 때 일관된 간격·줄바꿈을 보장합니다.
+- **Chip:** 필터·옵션의 선택 상태를 표현할 때 사용합니다.
+
+---
+
+## 14. 변경 이력 (Changelog)
+
+| 버전 | 날짜 | 변경 내용 |
+| :-- | :-- | :-- |
+| 0.1.0 | 2026-08-13 | 최초 작성. SEED·Atlassian·eBay·Uber Base·Gestalt·Spectrum 레퍼런스 종합, 표준 템플릿 v0.1 적용 |
