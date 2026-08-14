@@ -28,7 +28,7 @@ export default defineConfig({
       { text: 'UX Writing', items: items('foundations', ['Writing', 'Date & Time']) },
     ],
     '/components': [
-      { text: 'Action', collapsed: false, items: items('components', ['Button', 'Button Group', 'Link', 'Tile']) },
+      { text: 'Action', collapsed: false, items: items('components', ['Button', 'Icon Button', 'Button Group', 'Link', 'Tile']) },
       { text: 'Input Control', collapsed: false, items: items('components', ['Checkbox', 'Date Picker', 'File Upload', 'Text Field', 'Select', 'PIN Code', 'Menu', 'Radio', 'Segmented Control', 'Slider', 'Star Rating', 'Stepper', 'Switch', 'Time Picker', 'Dropdown', 'Chip']) },
       { text: 'Data Display', collapsed: false, items: items('components', ['Accordion', 'Avatar', 'Badge', 'Card', 'Divider', 'Empty State', 'List Item', 'Popover', 'Progress Bar', 'Progress Circle', 'Progress Steps', 'Section Heading', 'Tag', 'Tooltip']) },
       { text: 'Feedback & Status', collapsed: false, items: items('components', ['Banner', 'Dialog', 'Snackbar', 'System Banner']) },
@@ -40,6 +40,7 @@ export default defineConfig({
       ...items('develop', ['Overview', 'Getting Started', 'Changelog']),
       { text: 'Packages', items: items('develop', ['Tokens', 'Icons']) },
       { text: 'Frameworks', items: items('develop', ['React', 'Vue', 'Flutter']) },
+      { text: 'Token Naming', link: '/develop/token-naming' },
     ],
     '/ai-tools': items('ai-tools', ['Overview', 'llms.txt', 'AGENTS.md', 'Figma MCP', 'Claude Code']),
     '/updates': items('updates', ['Changelog', 'Roadmap', 'Releases']),
