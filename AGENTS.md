@@ -64,6 +64,7 @@ Figma → export 스크립트 → JSON 산출물(packages/*) → Actions 봇 자
 
 - **문체**: 모든 산출물 문서는 '합니다'체(`~합니다 / ~입니다 / ~됩니다`)로 씁니다. '하다'체
 (`~한다 / ~이다`)는 쓰지 않습니다. 명령·지시는 `~하십시오` 형태로 씁니다.
+- 토큰 표기는 `develop/token-naming`을 따릅니다.
 - **토큰 참조**: semantic 토큰은 primitive를 **참조**(`{color.gsblue.500}`)로 물어야 합니다.
 raw hex를 직접 넣지 마십시오. 참조가 끊기면 다크모드·테마 전환이 깨집니다.
 - **네이밍**: 약어형(`xs·sm·md·lg`)으로 통일합니다. word-form과 약어를 혼용하지 마십시오.
@@ -75,13 +76,13 @@ frontmatter를 파일 최상단에 둡니다. 본문은 사람용, frontmatter�
   - **공통**: `title`, `korean`, `description`, `category`, `status`, `version`, `lastUpdated`,
   `platforms`, `figma`(fileKey·nodeId), `aliases`, `ai`(intents·doNotConfuseWith)
   - **컴포넌트** (`components/*.mdx`): `code`(react·vue), `relatedComponents`,
-    `tokenSource`, `tokenCollections`, `a11y`(role·wcag) — 선택 필드 포함 가능
+  `tokenSource`, `tokenCollections`, `a11y`(role·wcag) — 선택 필드 포함 가능
   - **Foundations** (`foundations/*.mdx`): `package`(`@gsds/tokens`·`@gsds/icons` 등),
   `relatedPages` 또는 `relatedComponents`
   - **컴포넌트 가이드 템플릿**: `apps/docs/templates/component-guide-template.md`를 복사해
-    `apps/docs/src/pages/components/{slug}.mdx`로 작성합니다. 이미지는
-    `apps/docs/public/components/{slug}/`에 두고 본문에서는 `/components/{slug}/...`로
-    참조합니다. `vocs.config.ts` sidebar에 항목이 없으면 추가하십시오.
+  `apps/docs/src/pages/components/{slug}.mdx`로 작성합니다. 이미지는
+  `apps/docs/public/components/{slug}/`에 두고 본문에서는 `/components/{slug}/...`로
+  참조합니다. `vocs.config.ts` sidebar에 항목이 없으면 추가하십시오.
   - **figma.fileKey**: 컴포넌트·토큰 → DS 파일 `nt54vMZZnxkgPQ5It6B0IU`, 아이콘 →
   `packages/icons/scripts/export-icons.mjs`의 `FILE_KEY`. nodeId는 Figma URL에서 채우고, 모르면
   `"TBD"`로 둡니다.
