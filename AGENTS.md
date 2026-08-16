@@ -89,6 +89,26 @@ frontmatter를 파일 최상단에 둡니다. 본문은 사람용, frontmatter�
   - **참고 예시**: `components/button.mdx`, `foundations/design-tokens.mdx`,
   `foundations/iconography.mdx`, `templates/component-guide-template.md`
 
+## 코드 생성 규칙
+
+- **하드코딩 금지**: 색상·spacing·typography·radius·border·elevation 등 UI 스타일 값을 raw hex,
+  px, rem 또는 임의의 CSS 변수로 직접 작성하지 마십시오. Figma에 없는 값은 추측해 만들지 말고
+  `⚠ 확인 필요`로 남기거나 디자인 결정을 요청하십시오. 단, 아래 터치 타겟 최소값은 접근성 제약으로
+  직접 적용할 수 있습니다.
+- **semantic 토큰만 사용**: 소비 코드에서는 primitive 토큰(`--color-gsblue-500`,
+  `--color-gray-*` 등)을 직접 참조하지 마십시오. 현재 사이트에 연결된 semantic 토큰인
+  `--color-content-primary`, `--color-background-primary`,
+  `--color-background-brand-default`, `--color-border-secondary`처럼 용도를 나타내는 토큰만
+  사용하십시오. 새 토큰이 필요하면 Figma에서 semantic → primitive 참조로 정의하고 파이프라인으로
+  동기화하십시오.
+- **인터랙션 크기**: Button, IconButton, 링크형 컨트롤 등 모든 조작 가능 요소의 hit area는
+  최소 **44×44px**을 보장하십시오. 시각적 크기가 더 작아야 하면 padding 또는 별도 hit area로
+  확장하되, 레이아웃 값 자체는 정의된 토큰을 사용하십시오.
+- **정의된 컴포넌트만 사용**: Figma와 문서·패키지에 API가 정의된 컴포넌트만 재사용하십시오.
+  현재 저장소에서 구현 가이드가 있는 컴포넌트는 `Button`입니다. `IconButton`, `TextLink`, `Chip`,
+  `ButtonGroup`, `Tab` 등은 관련 컴포넌트로 언급되었더라도 구현 또는 API가 추가되기 전에는
+  존재하는 컴포넌트로 가정하거나 임의로 생성하지 마십시오.
+
 
 
 ## 절대 손대지 말 것 (경계)
@@ -121,4 +141,3 @@ CWD로 스크립트를 실행하기 때문입니다.
 - 루트의 이 `AGENTS.md`는 항상 활성입니다. 파일 타입별(예: `*.tsx` 전용) 규칙이 필요하면
 `.cursor/rules/*.mdc`로 분리합니다.
 - 에이전트에게 대량 자동 수정을 맡기기 전에 먼저 커밋해서 되돌릴 수 있게 하십시오.
-

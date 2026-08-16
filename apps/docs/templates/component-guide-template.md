@@ -1,83 +1,75 @@
+<!--
+사용법
+
+1. 이 파일 전체를 복사합니다.
+2. `apps/docs/src/pages/components/{slug}.mdx`로 저장합니다.
+3. `{...}`, `TBD`, `YYYY-MM-DD`를 실제 값으로 바꿉니다.
+4. 이미지는 `apps/docs/public/components/{slug}/`에 두고 본문에서
+   `/components/{slug}/...`로 참조합니다.
+5. `pnpm --filter @gsds/docs build`로 확인합니다.
+-->
+
 ---
-# ============================================================
-# GS Design System — 컴포넌트 가이드 표준 템플릿 v0.3
-# AI 에이전트가 파싱하는 메타데이터 영역이다.
-# 값이 미확정이면 비워두지 말고 "TBD"로 명시한다.
-#
-# v0.2 변경 사항 (업로드된 component-template.md와 병합):
-# - frontmatter: kebab-case component id, code-connect, a11y 요약, 3단 날짜 체계 도입
-# - 본문: Use Cases·Prototype·Platform Notes·Changelog Type 컬럼 추가
-#
-# v0.3 변경 사항:
-# - 업로드 템플릿의 `color-surface-default` 등 kebab-case 토큰명은 실제 토큰이 아니라
-#   예시였음이 확인되어, v0.2에서 도입했던 Alias/Canonical 이원 표기를 되돌렸다.
-# - 토큰은 다시 `gsshop-token-ver0813.json` 기준 단일 경로($ + 슬래시)로만 표기한다.
-# ============================================================
-component: "component-name"             # kebab-case. 파일명과 일치시킨다. AI 파싱용 정규화 키
-display-name: "ComponentName"           # 문서·UI에 노출되는 표시명 (PascalCase 영문)
-korean: "{한국어명}"                     # 예: 버튼
-description: "{한 문장 정의. '~하는 컴포넌트이다' 형태로 쓴다.}"
-status: "draft"                         # draft | in-review | stable | deprecated
+title: "ComponentName"
+korean: "{한국어명}"
+description: "{한 문장 정의. '~하는 컴포넌트입니다.' 형태로 씁니다.}"
+category: "components/{actions|input-control|data-display|feedback-status|navigation|data-and-tables|patterns}"
+status: "draft"
 version: "0.1.0"
-owner: "{담당자}"
-created: "YYYY-MM-DD"
-updated: "YYYY-MM-DD"
-last-reviewed: "YYYY-MM-DD"
+lastUpdated: "YYYY-MM-DD"
 platforms: [web, android, ios, flutter]
-category: []                            # Action | Input-control | Data-display | Feedback-status | Navigation | Data-and-tables (복수 선택 가능)
-tags: []                                 # 검색·필터용 키워드
-aliases: []                              # Common Alternative Names. 예: [CTA, Action Button]
-related: []                              # 연관 컴포넌트. kebab-case id로 쓴다. 예: [icon-button, chip]
 figma:
-  file: "{Figma file key 또는 URL}"
-  node-id: "{메인 컴포넌트 노드 ID}"
-  library: "GS Shop Components"
-code-connect:                            # figma-code-connect 스킬로 생성되는 매핑과 동일 값을 쓴다
-  web: ""
-  android: ""
-  ios: ""
-  flutter: ""
-tokenSource: "gsshop-token-ver0813.json" # 토큰 SSOT 파일명. 버전이 바뀌면 갱신한다
-tokenCollections: []                     # 이 컴포넌트가 소비하는 Figma Variable 컬렉션
-                                          # 예: ["Semantic: Color", "Semantic: Appearance", "Semantic: Typography"]
+  fileKey: "nt54vMZZnxkgPQ5It6B0IU"
+  nodeId: "TBD"
+code:
+  react: "@gs/design-system-react"
+  vue: "@gs/design-system-vue"
+aliases: []
+relatedComponents: []
+tokenSource: "gsshop-token-ver0813.json"
+tokenCollections: []
 a11y:
-  role: ""                               # WAI-ARIA role. 예: button, radiogroup
+  role: ""
   wcag: "2.1 AA"
-ai:                                       # AI 에이전트의 컴포넌트 선택을 돕는 블록
-  intents: []                            # 이 컴포넌트를 골라야 하는 사용자 의도 키워드
-  doNotConfuseWith: []                   # 혼동하기 쉬운 컴포넌트 목록
+ai:
+  intents: []
+  doNotConfuseWith: []
 ---
 
 <!--
 ============================================================
-작성 규칙 (이 주석 블록은 배포 시 유지해도 된다. llms-full.txt에는 포함되지 않도록 빌드에서 제거한다.)
+작성 규칙 (HTML 주석은 렌더되지 않습니다.)
 
-1. 문체: 종결 어미는 '하다'체로 통일한다. 지시문은 '~하라'로 쓴다. '~합니다/~습니다' 금지.
-2. 섹션 번호와 영문 앵커는 변경하지 않는다. AI 파싱의 안정 키(stable key)다.
+1. 문체: 종결 어미는 '합니다'체(`~합니다 / ~입니다 / ~됩니다`)로 통일합니다.
+   지시문은 `~하십시오`로 씁니다.
+2. 섹션 번호와 영문 앵커는 변경하지 않습니다. AI 파싱의 안정 키(stable key)입니다.
 3. 필수 섹션: 1, 2, 3, 4, 6, 7, 11, 13, 16, 17
    선택 섹션: 5, 8, 9, 10, 14, 15, 18 — 해당 없으면 삭제하지 말고
-   "해당 없음 (사유: ...)" 한 줄을 남긴다. AI가 '누락'과 '의도적 생략'을 구분하게 한다.
-4. 모든 스타일 값은 토큰으로 기술한다. 원시값(hex, px)은 토큰 옆 참고값으로만 병기한다.
-5. Figma에서 미확인 값은 "⚠ 확인 필요"를 붙인다.
+   "해당 없음 (사유: ...)" 한 줄을 남깁니다. AI가 '누락'과 '의도적 생략'을 구분하게 합니다.
+4. 모든 스타일 값은 토큰으로 기술합니다. 원시값(hex, px)은 토큰 옆 참고값으로만 병기합니다.
+5. Figma에서 미확인 값은 "⚠ 확인 필요"를 붙입니다.
 6. 토큰 표기: `gsshop-token-ver0813.json`(Figma Variables 원본)의 변수명을 그대로 쓰고
-   앞에 `$`를 붙여 슬래시 경로로 표기한다. 예: `$color/background/brand/default`, `$spacing/160`, `$radius/md`.
-   이 파일에 "sys"라는 접두어 계층은 없으므로 임의로 붙이지 않는다.
+   앞에 `$`를 붙여 슬래시 경로로 표기합니다. 예: `$color/background/brand/default`, `$spacing/160`, `$radius/md`.
+   이 파일에 "sys"라는 접두어 계층은 없으므로 임의로 붙이지 않습니다.
    컬러는 `Semantic: Color`, 스페이싱·라운드·스트로크·아이콘 사이즈는 `Semantic: Appearance`,
-   타이포그래피는 `Semantic: Typography` 컬렉션의 변수명을 그대로 따른다.
-   kebab-case 별칭(예: `color-surface-default`)은 실제 토큰 체계가 아니므로 쓰지 않는다.
+   타이포그래피는 `Semantic: Typography` 컬렉션의 변수명을 그대로 따릅니다.
+   kebab-case 별칭(예: `color-surface-default`)은 실제 토큰 체계가 아니므로 쓰지 않습니다.
    원본 파일에 없는 값(예: 컴포넌트 전용 height, motion duration/easing)은 발명하지 말고
-   "⚠ 확인 필요 — {사유}"로 명시하거나 파생 계산식을 남긴다.
-7. 이미지 경로는 Obsidian 볼트 상대 경로를 쓴다. 예: `../99-Assets/components/{component}/hero.png`
+   "⚠ 확인 필요 — {사유}"로 명시하거나 파생 계산식을 남깁니다.
+7. 이미지 경로는 `/components/{slug}/...` 형식을 씁니다. 실제 파일은
+   `apps/docs/public/components/{slug}/`에 둡니다.
 ============================================================
 -->
 
 # {ComponentName}
 
-> {한 줄 설명. frontmatter description과 동일하게 유지한다.}
+> {한 줄 설명. frontmatter description과 동일하게 유지합니다.}
 
-![hero-preview](../99-Assets/components/{component-name}/hero.png)
+![{ComponentName} 미리보기](/components/{slug}/hero.png)
 
-**다른 이름 (Common Alternative Names):** {aliases를 자연어로 나열한다. 없으면 "없다"}
+#### 다른 이름 (Common Alternative Names)
+
+{aliases를 자연어로 나열합니다. 없으면 "없음"으로 씁니다.}
 
 ---
 
@@ -91,21 +83,21 @@ ai:                                       # AI 에이전트의 컴포넌트 선�
 
 ## 2. 사용 시점 (When to Use)
 
-이 컴포넌트가 해결하는 사용자 목적(Job to be done)을 1~4개로 정리한다.
+이 컴포넌트가 해결하는 사용자 목적(Job to be done)을 1~4개로 정리합니다.
 
 1. **{목적 1}** — {한 줄 설명}
 2. **{목적 2}** — {한 줄 설명}
 
-### 사용하지 않는다 (When NOT to Use)
+### 사용하지 않는 맥락 (When NOT to Use)
 
-- {부적합한 상황} → 대신 **{대체 컴포넌트}**를 사용하라
-- {부적합한 상황} → 대신 **{대체 컴포넌트}**를 사용하라
+- {부적합한 상황} → 대신 **{대체 컴포넌트}**를 사용하십시오.
+- {부적합한 상황} → 대신 **{대체 컴포넌트}**를 사용하십시오.
 
 ---
 
 ## 3. Use Cases <!-- 선택 -->
 
-실제 화면에서 이 컴포넌트가 어떻게 쓰이는지 시나리오 단위로 서술한다.
+실제 화면에서 이 컴포넌트가 어떻게 쓰이는지 시나리오 단위로 서술합니다.
 
 ### 케이스 1 — {제목}
 
@@ -113,13 +105,13 @@ ai:                                       # AI 에이전트의 컴포넌트 선�
 **효과:** {이 컴포넌트가 어떤 가치를 제공하는가}
 **예시:** {실제 화면 예시}
 
-![use-case-1](../99-Assets/components/{component-name}/use-case-1.png)
+![{ComponentName} 사용 사례](/components/{slug}/use-case-1.png)
 
 ---
 
 ## 4. 해부 구조 (Anatomy)
 
-![{ComponentName} Anatomy](../99-Assets/components/{component-name}/anatomy.png)
+![{ComponentName} 해부 구조](/components/{slug}/anatomy.png)
 
 | # | 슬롯 (Slot) | 필수 여부 | 역할 |
 | :-- | :-- | :-- | :-- |
@@ -127,14 +119,14 @@ ai:                                       # AI 에이전트의 컴포넌트 선�
 | 2 | Label | 필수/선택 | {설명} |
 | 3 | {슬롯명} | 선택 | {설명} |
 
-<!-- 슬롯명은 12·13장·Figma 레이어명·코드 prop과 1:1로 일치시킨다. -->
+<!-- 슬롯명은 12·13장·Figma 레이어명·코드 prop과 1:1로 일치시킵니다. -->
 
 ---
 
 ## 5. 속성 (Properties)
 
-<!-- 컴포넌트에 존재하는 축(axis)만 남기고 나머지는 삭제한다.
-     축 이름(variant, size, layout, state, width)은 Figma 프로퍼티명·코드 prop명과 일치시킨다. -->
+<!-- 컴포넌트에 존재하는 축(axis)만 남기고 나머지는 삭제합니다.
+     축 이름(variant, size, layout, state, width)은 Figma 프로퍼티명·코드 prop명과 일치시킵니다. -->
 
 ### 5.1 Variant
 
@@ -151,7 +143,7 @@ ai:                                       # AI 에이전트의 컴포넌트 선�
 | `md` | - | - | - | - |
 | `lg` | - | - | - | - |
 
-<!-- 사이즈 키는 약어형(xs, sm, md, lg)으로 통일한다. 실제 값은 13장 Specification에서 토큰으로 확정한다. -->
+<!-- 사이즈 키는 약어형(xs, sm, md, lg)으로 통일합니다. 실제 값은 13장 Specification에서 토큰으로 확정합니다. -->
 
 ### 5.3 Width Behavior
 
@@ -165,7 +157,7 @@ ai:                                       # AI 에이전트의 컴포넌트 선�
 
 | State | 진입 조건 | 인터랙션 가능 여부 |
 | :-- | :-- | :-- |
-| `preloading` | 데이터 로드 전. 자리에 skeleton을 표시한다 | 불가 |
+| `preloading` | 데이터 로드 전, 자리에 skeleton을 표시합니다 | 불가 |
 | `enabled` | 기본 상태 | 가능 |
 | `hover` | 포인터가 올라간 상태 (웹 전용) | 가능 |
 | `focus` | 키보드 포커스를 받은 상태 | 가능 |
@@ -178,7 +170,7 @@ ai:                                       # AI 에이전트의 컴포넌트 선�
 
 ## 6. 위계와 조합 (Hierarchy & Composition) <!-- 선택 -->
 
-{여러 인스턴스가 한 화면에 공존할 때의 위계·조합 규칙을 서술한다.}
+{여러 인스턴스가 한 화면에 공존할 때의 위계·조합 규칙을 서술합니다.}
 
 | Emphasis | Variant | 화면 내 개수 | 용도 |
 | :-- | :-- | :-- | :-- |
@@ -190,15 +182,15 @@ ai:                                       # AI 에이전트의 컴포넌트 선�
 
 ## 7. 사용 가이드라인 (Do / Don't)
 
-<!-- Do/Don't는 반드시 쌍으로 작성한다. 근거를 함께 쓰고, 이미지가 있으면 함께 배치한다. -->
+<!-- Do/Don't는 반드시 쌍으로 작성합니다. 근거를 함께 쓰고, 이미지가 있으면 함께 배치합니다. -->
 
 ### ✅ Do
 
-- {권장 패턴을 '~한다' 또는 '~하라' 형태로 쓰고, 의도·근거를 함께 쓴다}
+- {권장 패턴을 '~합니다' 또는 '~하십시오' 형태로 쓰고, 의도·근거를 함께 씁니다.}
 
 ### ❌ Don't
 
-- {비권장 패턴} → {이유} + 대체 컴포넌트가 있으면 명시한다
+- {비권장 패턴} → {이유} + 대체 컴포넌트가 있으면 명시합니다.
 
 ---
 
@@ -206,18 +198,18 @@ ai:                                       # AI 에이전트의 컴포넌트 선�
 
 - {라벨·텍스트 작성 규칙}
 - {글자 수 제한. 예: 띄어쓰기 포함 최대 N자}
-- {좋은 예 ➔ 나쁜 예 대비를 제시한다}
+- {좋은 예 ➔ 나쁜 예 대비를 제시합니다.}
 
 ### 로컬라이제이션 (Localization)
 
-- 번역 시 텍스트가 20~30% 길어질 수 있음을 전제로 레이아웃을 설계하라.
+- 번역 시 텍스트가 20~30% 길어질 수 있음을 전제로 레이아웃을 설계하십시오.
 - {말줄임/줄바꿈 정책}
 
 ---
 
 ## 9. 반응형 대응 (Responsive) <!-- 선택 -->
 
-<!-- Figma Layout/Responsive 컬렉션 4개 모드(375/768/1024/1360) 기준으로 서술한다. -->
+<!-- Figma Layout/Responsive 컬렉션 4개 모드(375/768/1024/1360) 기준으로 서술합니다. -->
 
 | 구간 | 기준 | 동작 |
 | :-- | :-- | :-- |
@@ -230,9 +222,9 @@ ai:                                       # AI 에이전트의 컴포넌트 선�
 
 ## 10. Prototype <!-- 선택 -->
 
-핵심 인터랙션 데모. Figma Prototype 링크 또는 GIF를 남긴다.
+핵심 인터랙션 데모입니다. Figma Prototype 링크 또는 GIF를 남깁니다.
 
-![prototype](../99-Assets/components/{component-name}/prototype.gif)
+![{ComponentName} 프로토타입](/components/{slug}/prototype.gif)
 
 ---
 
@@ -244,26 +236,26 @@ ai:                                       # AI 에이전트의 컴포넌트 선�
 | **유사 A** | — | — | — |
 | **유사 B** | — | — | — |
 
-핵심 차이는 멘탈 모델(사용자가 어떻게 인식하는가)과 화면 전환 범위에서 갈린다. 본문에 1~2문단으로 차이를 풀어 쓴다.
+핵심 차이는 멘탈 모델(사용자가 어떻게 인식하는가)과 화면 전환 범위에서 갈립니다. 본문에 1~2문단으로 차이를 설명합니다.
 
 ---
 
 ## 12. 접근성 (Accessibility)
 
-- **Role / ARIA:** `{역할}` (예: `radiogroup` + `radio`). 라벨만으로 맥락이 부족하면 `aria-label`로 보완하라
-- **명도 대비:** WCAG 2.1 AA 이상 (일반 텍스트 4.5:1 / 큰 글씨 3:1). `disabled` 상태는 대비 기준 예외다
-- **터치 타겟:** 최소 48×48px을 보장하라 (웹 포인터 입력은 {N}×{N}px)
-- **스크린 리더:** 그룹·현재 선택값·옵션 수를 안내하라
-- **포커스 표시:** `$color/border/focus/default` 외곽선을 키보드 사용자에게만 노출하라 (`:focus-visible`)
-- **모션 감소:** `prefers-reduced-motion` 환경에서는 slide 등 이동 애니메이션을 즉시 전환으로 대체하라
+- **Role / ARIA:** `{역할}` (예: `radiogroup` + `radio`). 라벨만으로 맥락이 부족하면 `aria-label`로 보완하십시오.
+- **명도 대비:** WCAG 2.1 AA 이상 (일반 텍스트 4.5:1 / 큰 글씨 3:1)을 준수합니다. `disabled` 상태는 대비 기준 예외입니다.
+- **터치 타겟:** 최소 48×48px을 보장하십시오. (웹 포인터 입력은 {N}×{N}px입니다.)
+- **스크린 리더:** 그룹·현재 선택값·옵션 수를 안내하십시오.
+- **포커스 표시:** `$color/border/focus/default` 외곽선을 키보드 사용자에게만 노출하십시오. (`:focus-visible`)
+- **모션 감소:** `prefers-reduced-motion` 환경에서는 slide 등 이동 애니메이션을 즉시 전환으로 대체하십시오.
 
 ---
 
 ## 13. Token Mapping
 
-<!-- 컴포넌트가 소비하는 토큰을 속성 단위로 한눈에 보는 요약 표다.
-     값은 gsshop-token-ver0813.json의 실제 변수명을 $ + 슬래시 경로로 쓴다.
-     kebab-case 별칭은 실제 토큰 체계가 아니므로 쓰지 않는다. -->
+<!-- 컴포넌트가 소비하는 토큰을 속성 단위로 한눈에 보는 요약 표입니다.
+     값은 gsshop-token-ver0813.json의 실제 변수명을 $ + 슬래시 경로로 씁니다.
+     kebab-case 별칭은 실제 토큰 체계가 아니므로 쓰지 않습니다. -->
 
 | Property | Token |
 | :-- | :-- |
@@ -281,17 +273,17 @@ ai:                                       # AI 에이전트의 컴포넌트 선�
 | padding-horizontal | `$spacing/{value}` |
 | padding-vertical | `$spacing/{value}` |
 | font | `$label/{size}/font-size` 등 |
-| motion-duration | ⚠ 확인 필요 — Motion 컬렉션이 `gsshop-token-ver0813.json`에 아직 없다 |
+| motion-duration | ⚠ 확인 필요 — Motion 컬렉션이 `gsshop-token-ver0813.json`에 아직 없습니다 |
 | motion-easing | ⚠ 확인 필요 — 위와 동일 사유 |
 
-> hover·pressed 전용 배경 스와치가 없는 색군(예: inverse)은 `$color/state-layer/*` 오버레이를 대신 쓴다. Motion처럼 원본 토큰 컬렉션이 아직 없는 축은 토큰명을 지어내지 말고 "⚠ 확인 필요"로 남긴다.
+> hover·pressed 전용 배경 스와치가 없는 색군(예: inverse)은 `$color/state-layer/*` 오버레이를 대신 씁니다. Motion처럼 원본 토큰 컬렉션이 아직 없는 축은 토큰명을 지어내지 말고 "⚠ 확인 필요"로 남깁니다.
 
 ---
 
 ## 14. Specification (상세 매트릭스) <!-- 선택, 코드 생성 정밀도가 필요할 때 작성 -->
 
-<!-- 13장 요약 표로 부족할 때만 작성한다. 상태×슬롯×속성×토큰의 SEED식 전개다.
-     조합 축이 많으면 base → variant별 → size별 순으로 소제목을 나눈다. -->
+<!-- 13장 요약 표로 부족할 때만 작성합니다. 상태×슬롯×속성×토큰의 SEED식 전개입니다.
+     조합 축이 많으면 base → variant별 → size별 순으로 소제목을 나눕니다. -->
 
 ### base
 
@@ -324,14 +316,14 @@ ai:                                       # AI 에이전트의 컴포넌트 선�
 
 ### 선택 동작 <!-- 선택 컴포넌트에만 해당 -->
 
-- {한 번에 하나만 활성인지, 다중 선택인지 서술한다}
+- {한 번에 하나만 활성인지, 다중 선택인지 서술합니다.}
 - {클릭·탭 시 상태 전이 규칙}
 
 ### 모션 (Motion)
 
 | 요소 | 동작 | Token |
 | :-- | :-- | :-- |
-| {요소} | {slide/fade 등} | ⚠ 확인 필요 — Motion 컬렉션이 `gsshop-token-ver0813.json`에 아직 없다 |
+| {요소} | {slide/fade 등} | ⚠ 확인 필요 — Motion 컬렉션이 `gsshop-token-ver0813.json`에 아직 없습니다 |
 
 ### 키보드 / 포커스
 
@@ -348,10 +340,10 @@ ai:                                       # AI 에이전트의 컴포넌트 선�
 
 | Platform | 구현 노트 |
 | :-- | :-- |
-| Web | HTML/ARIA 패턴을 따르고, CSS custom property로 토큰을 바인딩한다 |
-| Android | Jetpack Compose 권장. Material 컴포넌트를 그대로 쓰지 않고 토큰으로 재구성한다 |
-| iOS | 네이티브 컴포넌트 대신 자체 구현을 권장한다 (토큰 일관성 확보) |
-| Flutter | 자체 위젯으로 토큰을 바인딩한다 |
+| Web | HTML/ARIA 패턴을 따르고, CSS custom property로 토큰을 바인딩합니다. |
+| Android | Jetpack Compose를 권장합니다. Material 컴포넌트를 그대로 쓰지 않고 토큰으로 재구성합니다. |
+| iOS | 네이티브 컴포넌트 대신 자체 구현을 권장합니다. (토큰 일관성 확보) |
+| Flutter | 자체 위젯으로 토큰을 바인딩합니다. |
 
 ---
 
@@ -379,7 +371,7 @@ import { {ComponentName} } from '@gs/design-system-react';
 <GS{ComponentName} variant="default" size="md">{내용}</GS{ComponentName}>
 ```
 
-<!-- Android / iOS / Flutter API는 code-connect가 확정되면 동일 표 형식으로 추가한다. 미구현이면 "TBD"로 남긴다. -->
+<!-- Android / iOS / Flutter API는 code-connect가 확정되면 동일 표 형식으로 추가합니다. 미구현이면 "TBD"로 남깁니다. -->
 
 ### Android — TBD
 ### iOS — TBD
@@ -389,13 +381,13 @@ import { {ComponentName} } from '@gs/design-system-react';
 
 ## 18. 관련 컴포넌트 (Related) <!-- 선택 -->
 
-- **{컴포넌트}:** {언제 이것을 대신 쓰는지 한 줄}
+- **{컴포넌트}:** {언제 이것을 대신 쓰는지 한 줄로 설명합니다.}
 
 ---
 
 ## 19. References <!-- 선택 -->
 
-외부 참고 문서·타 디자인시스템 링크를 남긴다. Tier 2 레퍼런스 캡처 문서가 있으면 함께 남긴다.
+외부 참고 문서·타 디자인시스템 링크를 남깁니다. Tier 2 레퍼런스 캡처 문서가 있으면 함께 남깁니다.
 
 - [{디자인시스템명} — {컴포넌트명}]({URL})
 
@@ -404,7 +396,7 @@ import { {ComponentName} } from '@gs/design-system-react';
 ## 20. 변경 이력 (Changelog)
 
 <!-- 변경 타입: Added | Changed | Fixed | Deprecated | Removed | Security
-     릴리즈 노트 자동 생성 시 이 표를 파싱한다. -->
+     릴리즈 노트 자동 생성 시 이 표를 파싱합니다. -->
 
 | Date | Version | Type | 변경 내용 |
 | :-- | :-- | :-- | :-- |
