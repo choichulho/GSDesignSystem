@@ -10,7 +10,7 @@ export const IconDevices = React.forwardRef(({ size = 24, ...props }, ref) => (
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <path fill="currentColor" fillRule="evenodd" d="M6 2h14a3 3 0 0 1 3 3v7.5a3 3 0 0 1-3 3h-6.25v3h2.75a.75.75 0 0 1 0 1.5h-5.25a.75.75 0 0 1 0-1.5h1v-3h-1.5a.75.75 0 0 1 0-1.5H20a1.5 1.5 0 0 0 1.5-1.5V5A1.5 1.5 0 0 0 20 3.5H6A1.5 1.5 0 0 0 4.5 5v2.75a.75.75 0 0 1-1.5 0V5a3 3 0 0 1 3-3m1 18.5H2.5v-9H7zM2.5 10H7a1.5 1.5 0 0 1 1.5 1.5v9A1.5 1.5 0 0 1 7 22H2.5A1.5 1.5 0 0 1 1 20.5v-9A1.5 1.5 0 0 1 2.5 10" clipRule="evenodd"/>
+    <path fill="currentColor" fillRule="evenodd" d="M7 10a1.5 1.5 0 0 1 1.5 1.5v9A1.5 1.5 0 0 1 7 22H2.5A1.5 1.5 0 0 1 1 20.5v-9A1.5 1.5 0 0 1 2.5 10zM2.5 20.5H7v-9H2.5z" clipRule="evenodd"/><path fill="currentColor" d="M20 2a3 3 0 0 1 3 3v7.5a3 3 0 0 1-3 3h-6.25v3h2.75a.75.75 0 0 1 0 1.5h-5.25a.75.75 0 0 1 0-1.5h1v-3h-1.5a.75.75 0 0 1 0-1.5H20a1.5 1.5 0 0 0 1.5-1.5V5A1.5 1.5 0 0 0 20 3.5H6A1.5 1.5 0 0 0 4.5 5v2.75a.75.75 0 0 1-1.5 0V5a3 3 0 0 1 3-3z"/>
   </svg>
 ));
 
