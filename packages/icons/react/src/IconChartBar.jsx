@@ -10,7 +10,7 @@ export const IconChartBar = React.forwardRef(({ size = 24, ...props }, ref) => (
     xmlns="http://www.w3.org/2000/svg"
     {...props}
   >
-    <path fill="currentColor" fillRule="evenodd" d="M4 19.5h17.25a.75.75 0 0 1 0 1.5H4a2 2 0 0 1-2-2V3.75a.75.75 0 0 1 1.5 0V19a.5.5 0 0 0 .5.5M19 17a1 1 0 0 0 1-1V7a1 1 0 0 0-2 0v9a1 1 0 0 0 1 1M7 17a1 1 0 0 0 1-1v-2.5a1 1 0 0 0-2 0V16a1 1 0 0 0 1 1m5-1a1 1 0 0 1-2 0V9.5a1 1 0 0 1 2 0zm3 1a1 1 0 0 0 1-1v-5a1 1 0 0 0-2 0v5a1 1 0 0 0 1 1" clipRule="evenodd"/>
+    <path fill="currentColor" d="M4 19.5h17.25a.75.75 0 0 1 0 1.5H4a2 2 0 0 1-2-2V3.75a.75.75 0 0 1 1.5 0V19a.5.5 0 0 0 .5.5"/><path fill="currentColor" d="M19 17a1 1 0 0 0 1-1V7a1 1 0 0 0-2 0v9a1 1 0 0 0 1 1M7 17a1 1 0 0 0 1-1v-2.5a1 1 0 0 0-2 0V16a1 1 0 0 0 1 1m5-1a1 1 0 0 1-2 0V9.5a1 1 0 0 1 2 0zm3 1a1 1 0 0 0 1-1v-5a1 1 0 0 0-2 0v5a1 1 0 0 0 1 1"/>
   </svg>
 ));
 
