@@ -23,8 +23,8 @@ export default defineConfig({
   sidebar: {
     '/get-started': items('get-started', ['Overview', 'Installation', 'Design Principles', 'Contribution']),
     '/foundations': [
-      { text: 'Style', items: items('foundations', ['Design Tokens', 'Color', 'Typography', 'Layout & Grids', 'Spacing', 'Radius', 'Border', 'Elevation', 'Opacity']) },
-      ...items('foundations', ['Iconography', 'Motion', 'Haptics']),
+      { text: 'Style', items: items('foundations', ['Design Tokens', 'Color', 'Typography', 'Layout & Grids', 'Spacing', 'Radius', 'Border', 'Elevation', 'Opacity', 'Motion', 'Motion Tokens']) },
+      ...items('foundations', ['Iconography', 'Haptics']),
       { text: 'UX Writing', items: items('foundations', ['Writing', 'Date & Time']) },
     ],
     '/components': [

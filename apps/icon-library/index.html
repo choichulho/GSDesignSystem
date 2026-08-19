@@ -4,6 +4,8 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>GS Icon Library</title>
+<!-- Font 탭 미리보기용: 아이콘 폰트 CSS를 로드합니다. URL은 script 안 FONT_CSS_URL과 동일하게 유지하세요. -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/choichulho/GSDesignSystem@main/packages/icons/font/gsicons.css" />
 <style>
   :root {
     /* GS Design System — Semantic: Color (Light) */
@@ -151,6 +153,7 @@
         <button data-tab="vue">Vue</button>
         <button data-tab="flutter">Flutter</button>
         <button data-tab="svg">SVG</button>
+        <button data-tab="font">Font</button>
       </div>
       <div class="code"><button class="copy" id="copyBtn">복사</button><span id="codeText"></span></div>
     </div>
@@ -160,6 +163,9 @@
 // ─────────────────────────────────────────────
 //  ⚙️ 설정 — icons.json 위치. 저장소 이름이 바뀌면 여기만 수정하세요.
 const ICONS_JSON_URL = "https://raw.githubusercontent.com/choichulho/GSDesignSystem/main/packages/icons/icons.json";
+//  ⚙️ 설정 — 아이콘 폰트(gsicons.css + woff/woff2/ttf) 위치. jsDelivr는 정적 에셋(폰트) 서빙에
+//  raw.githubusercontent.com보다 적합합니다(정확한 content-type, CDN 캐싱).
+const FONT_CSS_URL = "https://cdn.jsdelivr.net/gh/choichulho/GSDesignSystem@main/packages/icons/font/gsicons.css";
 // ─────────────────────────────────────────────
 
 const $ = (id) => document.getElementById(id);
@@ -256,6 +262,12 @@ function codeFor(ic, tab) {
     return "// pubspec.yaml → dependencies: flutter_svg: ^2.0.0\n" +
       "import 'package:flutter_svg/flutter_svg.dart';\n\n" +
       "SvgPicture.string(\n  '''" + (ic.svg || "") + "''',\n  width: 24,\n  height: 24" + tail;
+  }
+  if (tab === "font") {
+    return '<!-- 1) 폰트 스타일시트를 한 번만 로드 -->\n' +
+      '<link rel="stylesheet" href="' + FONT_CSS_URL + '">\n\n' +
+      '<!-- 2) 클래스명으로 아이콘 사용 (id 기준, 접두사 gis-) -->\n' +
+      '<i class="gis gis-' + ic.id + '"></i>';
   }
   return ic.svg || "";
 }

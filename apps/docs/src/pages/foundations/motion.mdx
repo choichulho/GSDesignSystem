@@ -1,0 +1,80 @@
+---
+title: "Motion"
+korean: "모션"
+description: "GSSHOP 인터페이스에서 변화의 원인과 결과를 자연스럽게 연결하는 모션 사용 원칙과 접근성 기준입니다."
+category: "foundations/motion"
+status: "draft"
+version: "0.1.0"
+lastUpdated: "2026-08-18"
+platforms: [web, android, ios, flutter]
+figma:
+  fileKey: "nt54vMZZnxkgPQ5It6B0IU"
+  nodeId: "TBD"
+package: "@gsds/tokens"
+aliases: [애니메이션, transition, easing, duration, reduced motion]
+relatedPages: [Motion Tokens, Design Tokens, Accessibility]
+ai:
+  intents: [모션 유형 선택, duration과 easing 적용, Reduced Motion 대응, 진입과 퇴장 모션 구분]
+  doNotConfuseWith: [자동 재생 캐러셀 대기 시간, 로딩 진행 상태, 장식용 반복 애니메이션]
+---
+
+# Motion
+
+모션은 상태 변화와 화면의 공간적 관계를 전달합니다. 사용자를 기다리게 하거나 단지 시선을 끌기 위한 장식으로 사용하지 않습니다.
+
+모든 구현은 [Motion Tokens](/foundations/motion-tokens)의 semantic 또는 component 토큰을 사용합니다. Primitive 토큰과 raw duration·cubic-bezier 값은 소비 코드에서 직접 사용하지 않습니다.
+
+## 원칙
+
+- **목적을 먼저 정의합니다.** 상태 변화, 화면 진입, 화면 퇴장, 위치 이동, 즉각 피드백 중 하나의 목적이 없는 모션은 추가하지 않습니다.
+- **변화의 방향을 보존합니다.** 화면 밖에서 들어오는 요소는 감속하여 안착하고, 화면 밖으로 나가는 요소는 가속하여 퇴장합니다.
+- **크기와 거리에 맞춥니다.** 작은 상태 변화는 짧게, 큰 요소의 장거리 이동은 충분히 인지할 수 있게 적용합니다.
+- **한 번에 하나의 변화에 집중합니다.** 같은 시점에 여러 요소가 경쟁하지 않도록 우선순위가 있는 변화만 모션으로 강조합니다.
+- **사용자의 설정을 존중합니다.** `prefers-reduced-motion`이 활성화되면 비필수 이동·반복·오버슈트를 제거합니다.
+
+## 용도별 선택
+
+| 용도 | 사용할 easing 역할 | 적용 예 |
+| --- | --- | --- |
+| 상태 피드백 | `$motion/easing/feedback` | 선택됨, hover, focus의 색상·투명도 변화 |
+| 화면 또는 오버레이 진입 | `$motion/easing/enter` | dialog, sheet, menu의 열림 |
+| 화면 또는 오버레이 퇴장 | `$motion/easing/exit` | dialog, sheet, menu의 닫힘 |
+| 화면 내 이동 | `$motion/easing/move` | 화면 전환, carousel의 사용자 조작 슬라이드 |
+| 제한적 강조 | `$motion/easing/attention` | 사용자의 명시적 동작 뒤의 단발성 강조 |
+
+`$motion/easing/default`는 적절한 역할을 판단하기 전의 임시 기본값입니다. 컴포넌트 출시 전에는 반드시 위 역할 중 하나 또는 component token으로 교체합니다.
+
+## Duration 선택
+
+duration은 요소의 시각적 무게, 이동 거리, easing을 함께 고려해 선택합니다. 동일한 duration이라도 커브와 이동 거리가 다르면 다르게 느껴집니다.
+
+| 범위 | 대상 |
+| --- | --- |
+| 50~200ms | 색상·투명도·선택 상태처럼 제자리에서 일어나는 즉각 피드백 |
+| 250~400ms | dropdown, menu처럼 작은 영역이 열리거나 닫히는 전환 |
+| 450~600ms | dialog, sheet, 화면 전환처럼 공간적 맥락을 전달해야 하는 변화 |
+| 700ms 이상 | 자동 재생 배경 모션에만 제한적으로 검토하며, 일반 인터랙션에는 사용하지 않음 |
+
+자동 전환의 **대기 시간(interval)**과 전환 자체의 **duration**은 다른 값입니다. carousel처럼 자동으로 진행되는 기능은 두 값을 하나의 모션 토큰으로 혼용하지 않으며, 정지·재생 제어를 제공합니다.
+
+## 제한 사항
+
+`$motion/easing/attention`은 목표값을 넘어섰다가 되돌아오는 오버슈트 커브입니다.
+
+- `transform` 속성에만 사용합니다.
+- `opacity`, color, width, height에는 사용하지 않습니다.
+- 반복·자동 재생·배경 모션에는 사용하지 않습니다.
+- 레이아웃을 밀어 다른 콘텐츠의 위치를 바꾸는 애니메이션은 사용하지 않습니다.
+
+`linear`는 spinner·progress처럼 균일한 리듬이 의미를 갖는 경우 또는 Reduced Motion 모드에만 사용합니다.
+
+## Reduced Motion
+
+Reduced Motion은 모션을 전부 없애는 옵션이 아니라, 정보를 전달하는 데 필수적이지 않은 움직임을 줄이는 모드입니다.
+
+- 장거리 이동, 자동 재생, 반복, 오버슈트는 제거합니다.
+- 상태 변화가 반드시 보여야 하는 경우에는 짧은 opacity 또는 color 변화만 유지합니다.
+- Web 출력은 `@media (prefers-reduced-motion: reduce)`에서 Reduced 모드의 토큰 값을 적용합니다.
+- 컴포넌트가 각자 미디어 쿼리를 작성하지 않도록 토큰 출력 계층에서 전환합니다.
+
+구체적인 모드 값과 플랫폼별 구현은 [Motion Tokens](/foundations/motion-tokens)에서 확인하십시오.
