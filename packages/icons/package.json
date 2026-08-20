@@ -6,7 +6,8 @@
   "scripts": {
     "export": "node scripts/export-icons.mjs",
     "build": "node scripts/build-components.mjs",
-    "sync": "pnpm export && pnpm build"
+    "font": "node scripts/build-font.mjs",
+    "sync": "pnpm export && pnpm build && pnpm font"
   },
-  "devDependencies": { "svgo": "^4.0.0" }
+  "devDependencies": { "svgo": "^4.0.0", "fantasticon": "^4.1.0" }
 }

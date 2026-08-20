@@ -37,11 +37,17 @@ jobs:
       - name: SVG → React·Vue 컴포넌트
         run: pnpm --filter @gsds/icons build
 
+      - name: icons.json → 아이콘 폰트 생성 (css + woff/woff2/ttf)
+        run: pnpm --filter @gsds/icons font
+
+      - name: icons.json → apps/docs 정적 복사본 동기화
+        run: cp packages/icons/icons.json apps/docs/public/icons.json
+
       - name: 변경사항 커밋 & 푸시
         run: |
           git config user.name "gs-icon-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add packages/icons
+          git add packages/icons apps/docs/public/icons.json
           if git diff --staged --quiet; then
             echo "변경된 아이콘이 없습니다. 커밋을 건너뜁니다."
           else
