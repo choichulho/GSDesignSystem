@@ -1,0 +1,98 @@
+---
+title: "Token Naming Guide"
+korean: "토큰 네이밍 가이드"
+description: "GS Shop 디자인 시스템의 토큰 표기를 정본(canonical) 하나와 그로부터 결정론적으로 계산되는 파생형으로 통일하는 규약입니다."
+category: "develop"
+status: "stable"
+version: "1.0.0"
+lastUpdated: "2026-08-20"
+platforms: [web, android, ios, flutter]
+figma:
+  fileKey: "nt54vMZZnxkgPQ5It6B0IU"
+  nodeId: "TBD"
+aliases: ["Token Naming Convention", "토큰 표기 규칙"]
+ai:
+  intents: ["토큰 이름을 어떻게 표기해야 하는지 알고 싶을 때", "Figma 변수명과 CSS 변수명 사이의 변환 규칙을 확인할 때", "DTCG JSON·CSS 변수·JS 경로 표기가 왜 다른지 이해할 때"]
+  doNotConfuseWith: ["design-tokens"]
+---
+
+# 토큰 네이밍 가이드
+
+GS Shop 디자인 시스템의 토큰 표기를 하나로 통일하기 위한 규약입니다. "AI가 정확히 읽고
+쓰는" 결정론적 네이밍(deterministic naming)을 보장합니다.
+
+## 원칙 — 정본 하나 + 결정론적 파생
+
+토큰 표기를 **단일 문자열**로 통일하는 것은 불가능합니다. CSS 변수는 `--케밥`을,
+Figma 변수는 슬래시(`/`)를, DTCG 참조는 `{점.표기}`를 **각 플랫폼이 강제**하기 때문입니다.
+
+따라서 표기를 이렇게 통일합니다.
+
+1. **정본(canonical) 하나를 정합니다.** 단일 진실원천이 Figma Variables이므로, 정본은
+   **Figma 변수 경로(슬래시 구분, 접두 없음)**입니다.
+2. **나머지 표기는 정본에서 규칙으로 계산되는 파생형**입니다. 사람도 AI도 어느 표기에서든
+   규칙만으로 다른 표기를 얻습니다.
+
+## 정본 (Canonical)
+
+```
+color/background/brand/default
+```
+
+- Figma Variables의 변수명을 그대로 사용합니다.
+- 구분자는 슬래시(`/`)이며, 접두어(`$`, `--`)를 붙이지 않습니다.
+- `gsshop-token-ver0813.json`(SSOT)의 변수명이 곧 정본입니다.
+
+## 맥락별 표기와 변환 규칙
+
+| 맥락 | 표기 예시 | 정본에서의 변환 |
+| :-- | :-- | :-- |
+| **Figma 변수 (원천)** | `color/background/brand/default` | 정본 그 자체 |
+| **문서·컴포넌트 템플릿 (참조)** | `$color/background/brand/default` | `$` 접두 |
+| **DTCG JSON (참조)** | `{color.background.brand.default}` | `/` → `.`, `{ }`로 감쌈 |
+| **CSS 변수 (출력)** | `--color-background-brand-default` | `/` → `-`, `--` 접두 |
+| **JS/TS 객체 경로** | `color.background.brand.default` | `/` → `.` |
+
+정본에서의 변환은 순수 문자열 함수입니다.
+
+```js
+const canonical = "color/background/brand/default";
+
+const figmaRef = "$" + canonical;                        // $color/background/brand/default
+const dtcgRef  = "{" + canonical.replaceAll("/", ".") + "}"; // {color.background.brand.default}
+const cssVar   = "--" + canonical.replaceAll("/", "-");  // --color-background-brand-default
+const jsPath   = canonical.replaceAll("/", ".");         // color.background.brand.default
+```
+
+## 불변식 (결정론 보장 규칙)
+
+- **세그먼트는 소문자**로 씁니다.
+- **파생은 항상 정본 → 파생 한 방향**으로 계산합니다. 파생형을 역파싱해 정본을 복원하지 않습니다.
+- **CSS 케밥은 출력 전용(write-only)입니다.** `/`와 `-`를 모두 `-`로 합치므로 세그먼트 경계가
+  모호해집니다. 예: 정본 `color/state-layer/hover` → `--color-state-layer-hover`는 정상 출력이지만,
+  이 CSS 이름만 보고 `state-layer`가 한 세그먼트인지 두 세그먼트인지 구분할 수 없습니다.
+  그러므로 CSS 이름은 참조·역변환의 근거로 쓰지 않습니다.
+- **Figma·문서·DTCG·JS 표기는 구분자(`/`·`.`)가 세그먼트 내부 문자(`-`)와 겹치지 않으므로**
+  서로 무손실로 상호 변환됩니다.
+
+## 금지 사항
+
+- **케밥 별칭을 정본처럼 쓰지 않습니다.** 예: `color-surface-default`를 원천 토큰명으로 쓰지 않습니다.
+  케밥은 CSS 출력에서만 등장합니다.
+- **"sys" 등 원본에 없는 접두 계층을 임의로 붙이지 않습니다.**
+- 원본에 없는 값(예: motion duration)은 토큰명을 지어내지 말고 "⚠ 확인 필요"로 남깁니다.
+
+## 적용 위치
+
+| 산출물 | 사용 표기 | 담당 |
+| :-- | :-- | :-- |
+| Figma Variables | 정본 (슬래시) | 원천 관리 |
+| 컴포넌트 템플릿·문서 | `$` + 슬래시 | 작성자 |
+| `tokens/*.json` (DTCG) | `{점.표기}` 참조 | export-tokens |
+| `tokens.css` | `--케밥` | build-tokens (자동) |
+| README·AGENTS | 정본 표기 + 이 가이드 링크 | 문서 관리 |
+
+## 검증 (권장, 추후)
+
+파이프라인이 안정화되면, 정본에서 각 파생형을 재생성해 실제 산출물과 대조하는 검사 스크립트를
+CI에 추가합니다. 표기 불일치를 자동으로 잡아 결정론을 유지합니다.
